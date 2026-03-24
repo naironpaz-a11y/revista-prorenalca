@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prorenalca &amp; Hermucan — Revista Digital 2009</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;700;900&family=Cormorant+SC:wght@400;600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14183d;--ink2:#1c2152;--ink3:#232966;
+  --gold:#c8a84b;--goldd:rgba(200,168,75,.18);
+  --rose:#d4688e;--rosep:#e8a0b8;--rosed:rgba(212,104,142,.15);
+  --tx:#e8e4da;--txd:#9da8c7;
+  --ru:rgba(200,168,75,.22);--rur:rgba(212,104,142,.22);
+  --sidebar-w:280px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--tx);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;line-height:1.8;overflow-x:hidden}
+
+/* ===== NAV ===== */
+#nav{position:fixed;top:0;left:0;right:0;z-index:800;background:rgba(20,24,61,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--ru)}
+.ni{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 2rem}
+
+/* Logo: los dos nombres lado a lado, letras blancas */
+.nb{display:flex;align-items:center;gap:.4rem;font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;white-space:nowrap}
+.nb-amp{color:var(--gold);font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;letter-spacing:0;margin:0 .1rem}
+
+/* Links nav: Inicio + Quiénes Somos + volumen */
+.nl{display:flex;gap:1.8rem;list-style:none;align-items:center}
+.nl a{font-family:'Cormorant SC',serif;font-size:.78rem;letter-spacing:.14em;color:#fff;text-decoration:none;transition:color .25s;white-space:nowrap}
+.nl a:hover{color:var(--gold)}
+.nv{font-family:'IM Fell English',serif;font-style:italic;font-size:.85rem;color:var(--rosep)}
+@media(max-width:800px){.nl .hide-mobile,.nv{display:none}}
+
+/* ===== SIDEBAR TOC (izquierda) ===== */
+#sidebar{
+  position:fixed;
+  top:60px;left:0;bottom:0;
+  width:var(--sidebar-w);
+  background:rgba(18,22,55,.98);
+  border-right:1px solid var(--ru);
+  z-index:700;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+}
+#sidebar.closed{transform:translateX(calc(-1 * var(--sidebar-w)))}
+.sb-header{
+  padding:1.2rem 1.4rem .8rem;
+  border-bottom:1px solid var(--ru);
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
+}
+.sb-title{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.4em;color:var(--gold);text-transform:uppercase}
+.sb-close{background:none;border:none;cursor:pointer;color:var(--txd);font-size:1.1rem;padding:.2rem;transition:color .2s;line-height:1}
+.sb-close:hover{color:var(--gold)}
+.sb-toc{flex:1;overflow-y:auto;padding:.6rem 0;scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
+.sb-item{display:flex;align-items:baseline;gap:.5rem;padding:.55rem 1.4rem;text-decoration:none;color:var(--txd);transition:background .2s,color .2s;border-left:2px solid transparent}
+.sb-item:hover{background:rgba(200,168,75,.07);color:var(--tx);border-left-color:var(--gold)}
+.sb-num{font-family:'Cinzel',serif;font-size:.62rem;color:var(--gold);min-width:22px;flex-shrink:0}
+.sb-txt{font-family:'Cormorant Garamond',serif;font-size:.88rem;flex:1;line-height:1.35}
+.sb-cat{font-family:'Cormorant SC',serif;font-size:.58rem;letter-spacing:.12em;color:var(--rosep);display:block;margin-top:.1rem}
+
+/* Patreon / Donativos en el sidebar */
+.sb-donate{padding:1rem 1.2rem 1.4rem;border-top:1px solid var(--ru);flex-shrink:0;background:rgba(200,168,75,.04)}
+.sb-donate-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.4em;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:.5rem;margin-bottom:.7rem}
+.sb-donate-label::before{content:'◆';font-size:.5rem}
+.patreon-box{border:1px solid var(--ru);background:rgba(20,24,61,.6);padding:.9rem 1rem;position:relative;overflow:hidden}
+.patreon-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--rose))}
+.patreon-info{font-family:'Cormorant Garamond',serif;font-size:.82rem;color:var(--txd);line-height:1.5;margin-bottom:.75rem}
+.patreon-btn{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  width:100%;
+  background:linear-gradient(135deg,rgba(200,168,75,.18),rgba(212,104,142,.12));
+  border:1px solid var(--gold);
+  color:var(--gold);
+  padding:.55rem .8rem;
+  font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  cursor:pointer;text-decoration:none;
+  transition:all .25s;
+}
+.patreon-btn:hover{background:linear-gradient(135deg,rgba(200,168,75,.35),rgba(212,104,142,.25));color:var(--tx);border-color:var(--rosep)}
+.patreon-btn svg{flex-shrink:0}
+
+/* Toggle button (visible siempre) */
+#sb-toggle{
+  position:fixed;
+  top:72px;
+  left:0;
+  z-index:690;
+  background:rgba(20,24,61,.96);
+  border:1px solid var(--ru);
+  border-left:none;
+  color:var(--gold);
+  padding:.45rem .55rem;
+  cursor:pointer;
+  font-size:.75rem;
+  font-family:'Cinzel',serif;
+  letter-spacing:.1em;
+  writing-mode:vertical-rl;
+  transition:left .35s cubic-bezier(.4,0,.2,1),background .25s,border-color .25s;
+  display:flex;align-items:center;gap:.3rem;
+}
+#sb-toggle:hover{background:rgba(200,168,75,.12);border-color:var(--gold)}
+#sb-toggle.open{left:var(--sidebar-w)}
+
+/* Main content shifts when sidebar open */
+#main-wrap{margin-left:var(--sidebar-w);transition:margin-left .35s cubic-bezier(.4,0,.2,1)}
+#main-wrap.collapsed{margin-left:0}
+
+/* ===== UTILS ===== */
+.W{max-width:1140px;margin:0 auto;padding:0 2.5rem}
+.sr{opacity:0;transform:translateY(22px);transition:.75s ease}
+.sr.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
+.orn{display:flex;align-items:center;gap:1rem;margin:1.2rem 0}
+.orn::before,.orn::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.orn span{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.4em;white-space:nowrap}
+hr.dr{border:none;border-top:3px double var(--ru);margin:0}
+.slr{display:flex;align-items:center;gap:1.5rem;margin-bottom:.6rem}
+.slr .lb{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.45em;color:var(--gold);text-transform:uppercase;white-space:nowrap}
+.slr::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.35}
+.sh{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:700;line-height:1.1;color:var(--tx);letter-spacing:.04em}
+.sh em{font-family:'IM Fell English',serif;font-style:italic;color:var(--gold);font-weight:400}
+.sh .ros{color:var(--rosep)}
+.bt{font-family:'Cormorant Garamond',serif;font-size:1.08rem;line-height:1.9;color:var(--tx);text-align:justify}
+.bt p{margin-bottom:1.1rem}.bt p:last-child{margin-bottom:0}
+
+/* ===== PORTADA ===== */
+#portada{min-height:100vh;padding-top:60px;display:grid;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden}
+.pbg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 55% at 50% 38%,rgba(200,168,75,.07),transparent 65%),radial-gradient(ellipse 50% 70% at 15% 85%,rgba(212,104,142,.06),transparent 55%),linear-gradient(175deg,#14183d 0%,#1c2152 55%,#14183d 100%)}
+.pci{position:absolute;border-radius:50%;border:1px solid var(--ru);pointer-events:none;top:50%;left:50%;transform:translate(-50%,-50%);animation:SP 60s linear infinite}
+.pci:nth-child(2){width:720px;height:720px}
+.pci:nth-child(3){width:520px;height:520px;border-color:var(--rur);animation-direction:reverse;animation-duration:45s}
+.pci:nth-child(4){width:320px;height:320px;animation-duration:30s}
+@keyframes SP{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.pmh{position:relative;z-index:2;text-align:center;padding:3.5rem 2rem 2rem;border-bottom:1px solid var(--ru)}
+.pey{font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.55em;color:var(--txd);text-transform:uppercase;margin-bottom:1.6rem}
+.ptit{font-family:'Cinzel',serif;font-size:clamp(2.8rem,6vw,6rem);font-weight:900;line-height:.95;letter-spacing:.06em}
+.ptit .t1{color:var(--gold);display:block}
+.ptit .amp{font-family:'IM Fell English',serif;font-style:italic;font-size:.55em;color:var(--txd);vertical-align:middle;margin:0 .3em}
+.ptit .t2{color:var(--rosep);display:block}
+.psub{font-family:'IM Fell English',serif;font-style:italic;font-size:1.15rem;color:var(--txd);margin-top:1.2rem}
+.pcen{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:5rem;padding:3rem 2rem}
+.ls{display:flex;flex-direction:column;align-items:center;gap:1.2rem;text-align:center}
+.lbox{width:160px;height:160px;border:1px solid var(--ru);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;cursor:pointer;transition:border-color .3s,box-shadow .3s;background:rgba(255,255,255,.02)}
+.lbox:hover{border-color:var(--gold);box-shadow:0 0 28px rgba(200,168,75,.15)}
+.lbox::before,.lbox::after,.lbox .lbc,.lbox .lbt{content:'';position:absolute;width:14px;height:14px;border-color:var(--gold);border-style:solid}
+.lbox::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.lbox::after{top:-1px;right:-1px;border-width:2px 2px 0 0}
+.lbox .lbc{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.lbox .lbt{bottom:-1px;left:-1px;border-width:0 0 2px 2px}
+.lbox input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.lbox img{width:100%;height:100%;object-fit:contain;display:none;padding:10px}
+.uh{display:flex;flex-direction:column;align-items:center;gap:.5rem;pointer-events:none}
+.uh svg{opacity:.3}
+.uh span{font-family:'Cormorant SC',serif;font-size:.65rem;letter-spacing:.2em;color:var(--txd);text-transform:uppercase}
+.lnm{font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase}
+.ltg{font-family:'IM Fell English',serif;font-style:italic;font-size:.85rem;color:var(--txd)}
+.cdv{display:flex;flex-direction:column;align-items:center;gap:1rem;color:var(--gold);opacity:.5}
+.cdv::before,.cdv::after{content:'';width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--gold),transparent)}
+.cdv span{font-family:'Cinzel',serif;font-size:1.3rem}
+.pstr{position:relative;z-index:2;border-top:1px solid var(--ru);display:grid;grid-template-columns:repeat(4,1fr)}
+.psci{padding:1.2rem 1rem;border-right:1px solid var(--ru);text-align:center}
+.psci:last-child{border-right:none}
+.psl{font-family:'Cormorant SC',serif;font-size:.65rem;letter-spacing:.3em;color:var(--txd);text-transform:uppercase;display:block;margin-bottom:.2rem}
+.psv{font-family:'Cinzel',serif;font-size:.85rem;color:var(--gold);letter-spacing:.1em}
+
+/* ===== INDICE ===== */
+#indice{padding:5rem 0;background:linear-gradient(180deg,var(--ink),var(--ink2))}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:0 4rem;border-top:1px solid var(--ru)}
+.trow{display:flex;align-items:baseline;gap:.5rem;padding:.9rem 0;border-bottom:1px solid var(--ru);text-decoration:none;color:inherit}
+.trow:hover .ttt{color:var(--gold)}
+.tnum{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);min-width:28px;flex-shrink:0}
+.ttt{font-family:'Cormorant Garamond',serif;font-size:1rem;flex:1;color:var(--tx);transition:color .25s;line-height:1.3}
+.tdt{flex:1;border-bottom:1px dotted rgba(200,168,75,.2);margin-bottom:4px;min-width:20px}
+.tpg{font-family:'Cinzel',serif;font-size:.7rem;color:var(--txd);min-width:28px;text-align:right}
+.tcat{font-family:'Cormorant SC',serif;font-size:.62rem;letter-spacing:.15em;color:var(--rosep);min-width:80px;text-align:right}
+
+/* ===== EDITORIAL ===== */
+#editorial{padding:5rem 0;background:var(--ink)}
+.ecols{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ru);position:relative}
+.ecols::before,.ecols::after,.ecols .ecb,.ecols .ect{content:'';position:absolute;width:18px;height:18px;border-style:solid;border-color:var(--gold)}
+.ecols::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.ecols::after{top:-1px;right:-1px;border-width:2px 2px 0 0}
+.ecols .ecb{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.ecols .ect{bottom:-1px;left:-1px;border-width:0 0 2px 2px}
+.ecol{padding:3.5rem}
+.ecol+.ecol{border-left:1px solid var(--ru)}
+.drp::first-letter{font-family:'Cinzel',serif;font-size:5.5rem;font-weight:900;color:var(--gold);float:left;line-height:.78;margin:0 .1em -.1em 0}
+.pq{border-top:1px solid var(--ru);border-bottom:1px solid var(--ru);padding:1.5rem 0;margin:2rem 0}
+.pq p{font-family:'IM Fell English',serif;font-style:italic;font-size:1.25rem;color:var(--rosep);line-height:1.55;text-align:center}
+.pq cite{display:block;margin-top:.6rem;font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.25em;color:var(--txd);text-align:center;font-style:normal}
+.esig{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--ru);display:flex;align-items:flex-end;justify-content:space-between}
+.sn{font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.sr_r{font-family:'IM Fell English',serif;font-style:italic;font-size:.85rem;color:var(--txd);margin-top:.2rem}
+.si{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.2em;color:var(--txd);text-align:right}
+
+/* ===== ARTICULOS ===== */
+#articulos{padding:5rem 0;background:linear-gradient(180deg,var(--ink2),var(--ink))}
+.alead{display:grid;grid-template-columns:3fr 1fr;border:1px solid var(--ru);position:relative;margin-bottom:2px}
+.alead::before,.alead::after,.alead .alb,.alead .alt{content:'';position:absolute;width:18px;height:18px;border-style:solid;border-color:var(--gold)}
+.alead::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.alead::after{top:-1px;right:-1px;border-width:2px 2px 0 0}
+.alead .alb{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.alead .alt{bottom:-1px;left:-1px;border-width:0 0 2px 2px}
+.alf{padding:3.5rem;border-right:1px solid var(--ru)}
+.alr{padding:3.5rem;display:flex;flex-direction:column;justify-content:space-between}
+.acat{font-family:'Cormorant SC',serif;font-size:.65rem;letter-spacing:.4em;color:var(--gold);text-transform:uppercase;margin-bottom:.8rem}
+.atit{font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.2vw,1.7rem);font-weight:700;line-height:1.25;color:var(--tx);margin-bottom:1rem;letter-spacing:.02em}
+.aab{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--txd);line-height:1.8;margin-bottom:1.5rem;text-align:justify}
+.aby{display:flex;align-items:center;gap:.8rem}
+.bdot{width:36px;height:36px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--gold),var(--rose));display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.65rem;color:var(--ink);font-weight:700}
+.bname{font-family:'Cormorant SC',serif;font-size:.78rem;letter-spacing:.12em;color:var(--tx);text-transform:uppercase;display:block}
+.binst{font-family:'IM Fell English',serif;font-style:italic;font-size:.8rem;color:var(--txd)}
+.kws{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem}
+.kw{font-family:'Cormorant SC',serif;font-size:.6rem;letter-spacing:.15em;color:var(--rosep);border:1px solid var(--rur);padding:.15rem .55rem;text-transform:uppercase}
+.anum{font-family:'Cinzel',serif;font-size:4rem;font-weight:900;color:var(--goldd);line-height:1;margin-bottom:auto}
+.amet{border-top:1px solid var(--ru);padding-top:1rem;margin-top:1rem}
+.mkey{font-family:'Cormorant SC',serif;font-size:.62rem;letter-spacing:.3em;color:var(--txd);text-transform:uppercase;display:block;margin-bottom:.2rem}
+.mval{font-family:'Cormorant Garamond',serif;font-size:.92rem;color:var(--tx)}
+.agrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--ru)}
+.ac{background:var(--ink);padding:2.2rem;transition:background .3s}
+.ac:hover{background:rgba(200,168,75,.03)}
+.ac .atit{font-size:1.1rem}.ac .aab{font-size:.9rem;margin-bottom:1rem}
+
+/* ===== ENTREVISTAS ===== */
+#entrevistas{padding:5rem 0;background:var(--ink)}
+.iblk{display:grid;grid-template-columns:260px 1fr;gap:4rem;align-items:start;padding-bottom:4rem;margin-bottom:4rem;border-bottom:1px solid var(--ru)}
+.iblk:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.pbox{position:relative;border:1px solid var(--ru)}
+.pbox::before,.pbox::after{content:'';position:absolute;width:18px;height:18px;border-style:solid;border-color:var(--gold)}
+.pbox::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.pbox::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.pinn{aspect-ratio:3/4;background:linear-gradient(160deg,var(--ink3),var(--ink));display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.pinn::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,var(--rosed),transparent 70%)}
+.psil{font-size:5rem;opacity:.15;position:relative;z-index:1}
+.pftr{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(20,24,61,.98),transparent);padding:2.5rem 1.2rem 1.2rem;z-index:2}
+.pnm{font-family:'Cinzel',serif;font-size:.95rem;color:var(--tx);display:block;letter-spacing:.05em}
+.prl{font-family:'IM Fell English',serif;font-style:italic;font-size:.82rem;color:var(--rosep);margin-top:.15rem}
+.itg{font-family:'Cormorant SC',serif;font-size:.65rem;letter-spacing:.4em;color:var(--rosep);text-transform:uppercase;margin-bottom:.5rem;display:block}
+.ihtl{font-family:'Cinzel',serif;font-size:clamp(1.2rem,2vw,1.6rem);font-weight:700;line-height:1.2;color:var(--tx);margin-bottom:2rem;letter-spacing:.02em}
+.qa{margin-bottom:1.8rem;padding-left:1.2rem}
+.qa.q{border-left:2px solid var(--gold)}
+.qa.a{border-left:2px solid var(--rose)}
+.qal{font-family:'Cormorant SC',serif;font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;margin-bottom:.4rem;display:block}
+.qa.q .qal{color:var(--gold)}.qa.a .qal{color:var(--rosep)}
+.qa.q .qat{font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;color:var(--txd);line-height:1.75}
+.qa.a .qat{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--tx);line-height:1.85}
+
+/* ===== RESENAS ===== */
+#resenas{padding:5rem 0;background:var(--ink2)}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--ru)}
+.rcard{background:var(--ink2);padding:2.8rem}
+.rtype{font-family:'Cormorant SC',serif;font-size:.63rem;letter-spacing:.38em;color:var(--gold);text-transform:uppercase;margin-bottom:.5rem}
+.rtit{font-family:'Cinzel',serif;font-size:1.25rem;font-weight:700;color:var(--tx);line-height:1.25;margin-bottom:.35rem;letter-spacing:.03em}
+.raut{font-family:'IM Fell English',serif;font-style:italic;font-size:.9rem;color:var(--rosep);margin-bottom:1rem}
+.stars{display:flex;gap:.2rem;margin-bottom:1rem}
+.star{font-size:.85rem;color:var(--gold)}.star.e{color:rgba(200,168,75,.18)}
+.rtxt{font-family:'Cormorant Garamond',serif;font-size:.98rem;color:var(--txd);line-height:1.85;margin-bottom:1.2rem;text-align:justify}
+.rby{border-top:1px solid var(--ru);padding-top:.8rem;font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.18em;color:var(--txd)}
+.rby span{color:var(--rosep);font-style:italic;font-family:'IM Fell English',serif}
+
+/* ===== VISUAL ===== */
+#visual{overflow:hidden}
+.vh{padding:5rem 0 3rem;background:var(--ink)}
+.vmosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:220px 220px;gap:2px;background:var(--ru)}
+.vcell{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.vcell:nth-child(1){grid-column:span 2;grid-row:span 2;background:linear-gradient(135deg,#1c2152,#232966)}
+.vcell:nth-child(2){background:linear-gradient(160deg,#14183d,#1a1f4a)}
+.vcell:nth-child(3){background:linear-gradient(200deg,#1c2152,#14183d)}
+.vcell:nth-child(4){background:linear-gradient(130deg,#1a1f4a,#232966)}
+.vcell:nth-child(5){background:linear-gradient(170deg,#14183d,#1c2152)}
+.vov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,24,61,.85),transparent 50%);transition:opacity .35s}
+.vcell:hover .vov{opacity:.95}
+.vic{font-size:3.5rem;opacity:.18;position:relative;z-index:1;transition:opacity .35s,transform .35s}
+.vcell:nth-child(1) .vic{font-size:6rem}
+.vcell:hover .vic{opacity:.08;transform:scale(1.1)}
+.vinf{position:absolute;bottom:0;left:0;right:0;padding:2rem 1.5rem 1.2rem;z-index:2;transform:translateY(30%);transition:transform .35s}
+.vcell:hover .vinf{transform:translateY(0)}
+.vcat{font-family:'Cormorant SC',serif;font-size:.6rem;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:.3rem;opacity:0;transition:opacity .35s .1s}
+.vcell:hover .vcat{opacity:1}
+.vtit{font-family:'Cinzel',serif;font-size:.95rem;color:var(--tx);line-height:1.3}
+.vdesc{font-family:'IM Fell English',serif;font-style:italic;font-size:.8rem;color:var(--txd);margin-top:.3rem;opacity:0;transition:opacity .35s .15s;line-height:1.5}
+.vcell:hover .vdesc{opacity:1}
+
+/* ===== CRITICA ===== */
+#critica{padding:5rem 0;background:var(--ink)}
+.crlay{display:grid;grid-template-columns:3fr 2fr;gap:5rem}
+.crhl{font-family:'Cinzel',serif;font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:900;line-height:1.15;color:var(--tx);margin-bottom:.8rem;letter-spacing:.03em}
+.crsub{font-family:'IM Fell English',serif;font-style:italic;font-size:1.1rem;color:var(--rosep);margin-bottom:2rem;line-height:1.5}
+.hlbox{background:rgba(212,104,142,.05);border-left:3px solid var(--rose);padding:1.3rem 1.6rem;margin:2.2rem 0}
+.hlbox p{font-family:'IM Fell English',serif;font-style:italic;font-size:1.1rem;color:var(--rosep);line-height:1.65}
+.spanel{border:1px solid var(--ru);position:relative;margin-bottom:2rem}
+.spanel::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(to bottom,var(--gold),var(--rose))}
+.sph{padding:1rem 1.4rem;border-bottom:1px solid var(--ru);font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.35em;color:var(--gold);text-transform:uppercase}
+.spb{padding:1.4rem}
+.stl{display:flex;justify-content:space-between;align-items:baseline;padding:.55rem 0;border-bottom:1px solid var(--ru)}
+.stl:last-child{border-bottom:none}
+.sll{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--txd)}
+.slv{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--rosep)}
+.tli{display:grid;grid-template-columns:55px 1fr;gap:.8rem;margin-bottom:1rem}
+.tly{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold);padding-top:.2rem;text-align:right}
+.tlev{font-family:'Cormorant Garamond',serif;font-size:.88rem;color:var(--txd);line-height:1.5;border-left:1px solid var(--ru);padding-left:.8rem}
+
+/* ===== INFOGRAFIAS ===== */
+#infografias{padding:5rem 0 6rem;background:linear-gradient(180deg,var(--ink2),var(--ink))}
+.iintro{font-family:'IM Fell English',serif;font-style:italic;font-size:1.1rem;color:var(--txd);max-width:600px;margin-bottom:4rem;line-height:1.7}
+.isr{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--ru);margin-bottom:2px}
+.isc{background:var(--ink2);padding:2.5rem 2rem;text-align:center;position:relative}
+.isc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--rose))}
+.isb{font-family:'Cinzel',serif;font-size:3.5rem;font-weight:900;color:var(--gold);line-height:1;display:block;margin-bottom:.4rem}
+.isl{font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.3em;color:var(--txd);text-transform:uppercase;display:block;margin-bottom:.5rem}
+.isd{font-family:'IM Fell English',serif;font-style:italic;font-size:.88rem;color:var(--txd);line-height:1.5}
+.ibars{background:var(--ink2);padding:3rem;border:1px solid var(--ru);margin-bottom:2px}
+.ibt{font-family:'Cinzel',serif;font-size:1rem;color:var(--tx);letter-spacing:.08em;margin-bottom:.3rem}
+.ibs{font-family:'IM Fell English',serif;font-style:italic;font-size:.85rem;color:var(--txd);margin-bottom:2.5rem}
+.bchart{display:flex;flex-direction:column;gap:1.1rem}
+.bari{display:grid;grid-template-columns:180px 1fr 60px;gap:1rem;align-items:center}
+.barn{font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.1em;color:var(--tx);text-align:right}
+.bartr{height:22px;background:rgba(255,255,255,.04);position:relative;overflow:hidden}
+.barf{height:100%;position:absolute;left:0;top:0;background:linear-gradient(90deg,var(--gold),var(--rose));transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(.25,.46,.45,.94)}
+.barf.on{transform:scaleX(1)}
+.barp{font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold)}
+.imix{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--ru);margin-bottom:2px}
+.iring,.itl{background:var(--ink2);padding:3rem}
+.ipt{font-family:'Cinzel',serif;font-size:.95rem;color:var(--tx);letter-spacing:.08em;margin-bottom:2rem}
+.rwrap{display:flex;align-items:center;gap:2.5rem}
+.rleg{flex:1;display:flex;flex-direction:column;gap:.9rem}
+.ritem{display:flex;align-items:center;gap:.75rem}
+.rdot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.rilbl{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.12em;color:var(--tx);text-transform:uppercase;flex:1}
+.ripct{font-family:'Cinzel',serif;font-size:.85rem;color:var(--txd)}
+.vtl{position:relative;padding-left:2rem}
+.vtl::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),var(--rose));opacity:.4}
+.vtitem{position:relative;margin-bottom:1.8rem}
+.vtitem:last-child{margin-bottom:0}
+.vtdot{position:absolute;left:-2rem;top:.35rem;width:14px;height:14px;border:2px solid var(--gold);background:var(--ink2);border-radius:50%;transform:translateX(1px)}
+.vtitem:nth-child(even) .vtdot{border-color:var(--rose)}
+.vtyr{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);display:block;margin-bottom:.2rem;letter-spacing:.12em}
+.vtitem:nth-child(even) .vtyr{color:var(--rosep)}
+.vttx{font-family:'Cormorant Garamond',serif;font-size:.92rem;color:var(--txd);line-height:1.55}
+.itabpanel{background:var(--ink2);padding:3rem;border:1px solid var(--ru)}
+.itable{width:100%;border-collapse:collapse;margin-top:1.5rem}
+.itable th{font-family:'Cormorant SC',serif;font-size:.65rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;padding:.7rem 1rem;border-bottom:1px solid var(--ru);text-align:left}
+.itable td{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--txd);padding:.7rem 1rem;border-bottom:1px solid rgba(200,168,75,.08);vertical-align:middle}
+.itable tr:last-child td{border-bottom:none}
+.ibdg{display:inline-block;font-family:'Cinzel',serif;font-size:.7rem;padding:.2rem .7rem;letter-spacing:.1em}
+.ibdg.hi{color:var(--rosep);border:1px solid var(--rur)}
+.ibdg.md{color:var(--gold);border:1px solid var(--ru)}
+.ibdg.lo{color:var(--txd);border:1px solid rgba(255,255,255,.1)}
+.tdv{font-family:'Cinzel',serif;font-size:1rem;color:var(--tx)}
+.mbar{height:6px;background:rgba(255,255,255,.05);position:relative;overflow:hidden;width:100px;display:inline-block;vertical-align:middle;margin-left:.5rem}
+.mfill{height:100%;position:absolute;left:0;top:0;background:linear-gradient(90deg,var(--gold),var(--rose));transform:scaleX(0);transform-origin:left;transition:transform 1.4s .3s ease}
+.mfill.on{transform:scaleX(1)}
+
+/* ===== ESTADÍSTICAS - solo admin ===== */
+.admin-only{display:none !important}
+body.admin-mode .admin-only{display:block !important}
+
+/* ===== EDICIÓN INLINE ===== */
+[data-editable]{
+  position:relative;
+  border-radius:2px;
+  transition:outline .2s, background .2s;
+  outline:1px dashed transparent;
+}
+body.edit-mode-on [data-editable]{
+  outline:1px dashed rgba(200,168,75,.4);
+  cursor:text;
+}
+body.edit-mode-on [data-editable]:hover{
+  outline:1px dashed var(--gold);
+  background:rgba(200,168,75,.05);
+}
+[data-editable].editable-active:focus{
+  outline:2px solid var(--gold) !important;
+  background:rgba(200,168,75,.07) !important;
+  border-radius:3px;
+}
+/* Barra flotante de admin (editar / cerrar sesión) */
+#admin-bar{
+  display:none;
+  position:fixed;
+  bottom:1.5rem;
+  right:1.5rem;
+  z-index:900;
+  flex-direction:column;
+  gap:.5rem;
+  align-items:flex-end;
+}
+#edit-mode-btn{
+  background:rgba(20,24,61,.92);
+  border:1px solid var(--gold);
+  color:var(--gold);
+  padding:.5rem 1rem;
+  font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+  cursor:pointer;transition:all .25s;
+  backdrop-filter:blur(8px);
+}
+#edit-mode-btn:hover{background:rgba(200,168,75,.15)}
+#logout-btn{
+  background:rgba(20,24,61,.92);
+  border:1px solid rgba(212,104,142,.4);
+  color:var(--rosep);
+  padding:.4rem .8rem;
+  font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;
+  cursor:pointer;transition:all .25s;
+  backdrop-filter:blur(8px);
+}
+#logout-btn:hover{border-color:var(--rosep);background:rgba(212,104,142,.1)}
+
+/* ===== Panel acceso admin ===== */
+#admin-login{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:900;
+}
+.admin-toggle-btn{
+  background:rgba(20,24,61,.85);
+  border:1px solid rgba(200,168,75,.3);
+  color:rgba(200,168,75,.5);
+  padding:.4rem .7rem;
+  font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.2em;
+  cursor:pointer;border-radius:2px;transition:all .25s;
+}
+.admin-toggle-btn:hover{border-color:var(--gold);color:var(--gold)}
+#admin-panel{
+  display:none;
+  background:rgba(18,22,55,.98);
+  border:1px solid var(--ru);
+  padding:1.2rem 1.4rem;
+  margin-bottom:.5rem;
+  min-width:220px;
+}
+#admin-panel.open{display:block}
+#admin-panel p{font-family:'Cormorant SC',serif;font-size:.65rem;letter-spacing:.3em;color:var(--gold);margin-bottom:.7rem;text-transform:uppercase}
+#admin-pass{background:rgba(255,255,255,.04);border:1px solid var(--ru);color:var(--tx);padding:.5rem .7rem;font-family:'Cormorant Garamond',serif;font-size:.9rem;width:100%;outline:none;margin-bottom:.6rem}
+#admin-pass:focus{border-color:var(--gold)}
+#admin-enter{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.4rem 1rem;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;cursor:pointer;width:100%;transition:all .25s;text-transform:uppercase}
+#admin-enter:hover{background:var(--gold);color:var(--ink)}
+#admin-msg{font-family:'IM Fell English',serif;font-style:italic;font-size:.78rem;color:var(--rosep);margin-top:.4rem;display:none}
+
+/* ===== QUIÉNES SOMOS (sección) ===== */
+#quienes{padding:5rem 0;background:var(--ink2)}
+.qs-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.qs-org{padding:2.5rem;border:1px solid var(--ru);position:relative}
+.qs-org::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent)}
+.qs-org.rose-accent::before{background:linear-gradient(90deg,var(--rose),transparent)}
+.qs-org-name{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--gold);letter-spacing:.08em;margin-bottom:.3rem}
+.qs-org.rose-accent .qs-org-name{color:var(--rosep)}
+.qs-org-tag{font-family:'IM Fell English',serif;font-style:italic;font-size:.88rem;color:var(--txd);margin-bottom:1.2rem;display:block}
+.qs-text{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--txd);line-height:1.85}
+.qs-mission{margin-top:3rem;padding:2.5rem;border:1px solid var(--ru);position:relative;background:rgba(200,168,75,.03)}
+.qs-mission::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--gold),var(--rose))}
+
+/* ===== BOTONES PORTADA (Quiénes Somos / Misión / Visión / Valores) ===== */
+.portada-btns{
+  position:relative;z-index:2;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;
+  padding:2rem 2rem 3rem;
+}
+.pb-btn{
+  display:flex;align-items:center;gap:.55rem;
+  background:transparent;
+  border:1px solid rgba(200,168,75,.35);
+  color:var(--txd);
+  padding:.6rem 1.4rem;
+  font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;
+  cursor:pointer;text-decoration:none;
+  transition:all .3s;
+  position:relative;overflow:hidden;
+}
+.pb-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,168,75,.08),rgba(212,104,142,.06));opacity:0;transition:opacity .3s}
+.pb-btn:hover::before{opacity:1}
+.pb-btn:hover{border-color:var(--gold);color:var(--tx)}
+.pb-btn .pb-icon{font-size:.9rem;opacity:.7}
+.pb-btn:nth-child(2){border-color:rgba(212,104,142,.3)}
+.pb-btn:nth-child(2):hover{border-color:var(--rosep);color:var(--rosep)}
+.pb-btn:nth-child(3){border-color:rgba(200,168,75,.25)}
+.pb-btn:nth-child(4){border-color:rgba(157,168,199,.25)}
+.pb-btn:nth-child(4):hover{border-color:var(--txd);color:var(--tx)}
+
+/* ===== MODAL INSTITUCIONAL ===== */
+#modal-overlay{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(14,18,48,.92);
+  backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .35s;
+  padding:1.5rem;
+}
+#modal-overlay.open{opacity:1;pointer-events:all}
+#modal-box{
+  background:var(--ink2);
+  border:1px solid var(--ru);
+  max-width:780px;width:100%;
+  max-height:88vh;
+  overflow-y:auto;
+  position:relative;
+  transform:translateY(24px);
+  transition:transform .35s;
+  scrollbar-width:thin;scrollbar-color:var(--gold) transparent;
+}
+#modal-overlay.open #modal-box{transform:translateY(0)}
+.modal-top{
+  position:sticky;top:0;z-index:10;
+  background:var(--ink2);
+  border-bottom:1px solid var(--ru);
+  padding:1rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.modal-tabs{display:flex;gap:0;flex-wrap:wrap}
+.mtab{
+  font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  padding:.5rem .9rem;color:var(--txd);cursor:pointer;border:none;background:none;
+  border-bottom:2px solid transparent;transition:all .2s;
+}
+.mtab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.mtab:hover{color:var(--tx)}
+.modal-close{
+  background:none;border:1px solid rgba(255,255,255,.15);color:var(--txd);
+  width:28px;height:28px;cursor:pointer;font-size:.9rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;flex-shrink:0;
+}
+.modal-close:hover{border-color:var(--rosep);color:var(--rosep)}
+.modal-body{padding:2.5rem}
+.mpanel{display:none}
+.mpanel.active{display:block}
+.mpanel-title{
+  font-family:'Cinzel',serif;font-size:1.4rem;font-weight:700;
+  color:var(--gold);letter-spacing:.06em;margin-bottom:.4rem;
+}
+.mpanel-sub{
+  font-family:'IM Fell English',serif;font-style:italic;
+  font-size:.95rem;color:var(--rosep);margin-bottom:1.8rem;
+  display:block;
+}
+.mpanel-txt{
+  font-family:'Cormorant Garamond',serif;font-size:1.05rem;
+  color:var(--txd);line-height:1.9;
+}
+.mpanel-list{list-style:none;margin-top:1.2rem;display:flex;flex-direction:column;gap:.8rem}
+.mpanel-list li{
+  display:flex;align-items:flex-start;gap:.8rem;
+  font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--txd);line-height:1.7;
+}
+.mpanel-list li::before{
+  content:'◆';color:var(--gold);font-size:.5rem;flex-shrink:0;margin-top:.55rem;
+}
+
+/* ===== IMÁGENES EN ARTÍCULOS ===== */
+.art-img-wrap{
+  margin:1.5rem 0;position:relative;border:1px solid var(--ru);
+  background:rgba(255,255,255,.02);overflow:hidden;
+}
+.art-img-wrap img{width:100%;height:auto;display:block;max-height:340px;object-fit:cover}
+.art-img-placeholder{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.6rem;padding:2.5rem;min-height:120px;cursor:pointer;
+  transition:background .25s;
+}
+.art-img-placeholder:hover{background:rgba(200,168,75,.05)}
+.art-img-placeholder svg{opacity:.25}
+.art-img-placeholder span{
+  font-family:'Cormorant SC',serif;font-size:.62rem;letter-spacing:.3em;
+  color:var(--txd);text-transform:uppercase;
+}
+.art-img-placeholder input{display:none}
+.art-img-caption{
+  padding:.5rem .8rem;
+  font-family:'IM Fell English',serif;font-style:italic;
+  font-size:.82rem;color:var(--txd);
+  border-top:1px solid var(--ru);
+}
+/* Botón quitar imagen (solo admin) */
+.art-img-remove{
+  position:absolute;top:.4rem;right:.4rem;
+  background:rgba(14,18,48,.85);border:1px solid var(--rosep);
+  color:var(--rosep);width:22px;height:22px;
+  font-size:.7rem;cursor:pointer;display:none;
+  align-items:center;justify-content:center;
+}
+body.admin-mode .art-img-wrap:hover .art-img-remove{display:flex}
+
+/* ===== COMENTARIOS ===== */
+#comentarios{padding:5rem 0;background:var(--ink)}
+.cwrap{max-width:780px}
+.cbox{border:1px solid var(--ru);position:relative;margin-top:2rem}
+.cbox::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--rose))}
+.chead{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2rem;border-bottom:1px solid var(--ru)}
+.chtit{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase}
+.chcnt{font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.12em;color:var(--txd)}
+.chcnt b{color:var(--rosep);font-family:'Cinzel',serif}
+.clist{max-height:380px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
+.citem{padding:1.4rem 2rem;border-bottom:1px solid var(--ru);animation:cfade .4s ease}
+@keyframes cfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.citem:last-child{border-bottom:none}
+.cihd{display:flex;align-items:center;gap:.7rem;margin-bottom:.6rem}
+.cav{width:30px;height:30px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--gold),var(--rose));display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.6rem;color:var(--ink);font-weight:700}
+.cnm{font-family:'Cormorant SC',serif;font-size:.75rem;letter-spacing:.12em;color:var(--tx);text-transform:uppercase;display:block}
+.cdt{font-family:'IM Fell English',serif;font-style:italic;font-size:.75rem;color:var(--txd)}
+.ctx{font-family:'Cormorant Garamond',serif;font-size:.98rem;color:var(--txd);line-height:1.75}
+.clim{padding:.8rem 2rem;background:rgba(200,168,75,.05);text-align:center;font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;display:none}
+.clim.show{display:block}
+.cform{padding:1.8rem 2rem;border-top:1px solid var(--ru)}
+.cfrow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:.9rem}
+.cfg{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.9rem}
+.cfl{font-family:'Cormorant SC',serif;font-size:.62rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+.cfi,.cfta{background:rgba(255,255,255,.025);border:1px solid var(--ru);color:var(--tx);padding:.6rem .9rem;font-family:'Cormorant Garamond',serif;font-size:1rem;outline:none;transition:border-color .25s;width:100%}
+.cfi:focus,.cfta:focus{border-color:var(--gold)}
+.cfta{resize:vertical;min-height:85px}
+.cffoot{display:flex;align-items:center;justify-content:space-between}
+.cfbtn{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.65rem 2rem;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.cfbtn:hover{background:var(--gold);color:var(--ink)}
+.cfnote{font-family:'IM Fell English',serif;font-style:italic;font-size:.82rem;color:var(--txd)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--ink);border-top:1px solid var(--ru);padding:4rem 0 2rem}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.fbn{font-family:'Cinzel',serif;font-size:1.3rem;color:var(--gold);margin-bottom:.3rem;letter-spacing:.06em}
+.fbs{font-family:'Cormorant SC',serif;font-size:.65rem;letter-spacing:.3em;color:var(--rosep);text-transform:uppercase;margin-bottom:1rem}
+.fbd{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--txd);line-height:1.7}
+.fct{font-family:'Cormorant SC',serif;font-size:.65rem;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem}
+.fcl{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.fcl a{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--txd);text-decoration:none;transition:color .25s}
+.fcl a:hover{color:var(--gold)}
+.fbot{border-top:1px solid var(--ru);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between}
+.fcp{font-family:'Cormorant Garamond',serif;font-size:.82rem;color:var(--txd)}
+.fissn{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;color:var(--gold)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  :root{--sidebar-w:260px}
+  .pcen{flex-direction:column;gap:2rem}
+  .cdv{flex-direction:row}
+  .cdv::before,.cdv::after{width:40px;height:1px}
+  .ecols,.alead{grid-template-columns:1fr}
+  .ecol+.ecol{border-left:none;border-top:1px solid var(--ru)}
+  .agrid,.rgrid,.isr,.imix{grid-template-columns:1fr}
+  .iblk{grid-template-columns:1fr}
+  .crlay{grid-template-columns:1fr}
+  .toc{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr 1fr}
+  .pstr{grid-template-columns:1fr 1fr}
+  .vmosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .vcell:nth-child(1){grid-column:span 2;grid-row:span 1}
+  .qs-grid{grid-template-columns:1fr}
+  #main-wrap{margin-left:0}
+  #sidebar{transform:translateX(calc(-1 * var(--sidebar-w)))}
+  #sidebar.open-mobile{transform:translateX(0)}
+  #sb-toggle{left:0 !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav id="nav">
+  <div class="ni">
+    <!-- Nombres lado a lado, letras blancas -->
+    <span class="nb">Prorenalca <span class="nb-amp">&amp;</span> Hermucan</span>
+    <ul class="nl">
+      <li><a href="#portada">Inicio</a></li>
+      <li><a href="#quienes">Quiénes Somos</a></li>
+      <li class="hide-mobile"><a href="#editorial">Editorial</a></li>
+      <li class="hide-mobile"><a href="#articulos">Artículos</a></li>
+      <li class="hide-mobile"><a href="#entrevistas">Entrevistas</a></li>
+      <li class="hide-mobile"><a href="#resenas">Reseñas</a></li>
+      <li class="hide-mobile"><a href="#infografias">Infografías</a></li>
+    </ul>
+    <span class="nv">Vol. I · Núm. 1 · 2009</span>
+  </div>
+</nav>
+
+<!-- ===== SIDEBAR TABLA DE CONTENIDOS ===== -->
+<aside id="sidebar">
+  <div class="sb-header">
+    <span class="sb-title">Contenido</span>
+    <button class="sb-close" onclick="toggleSidebar()" title="Cerrar">✕</button>
+  </div>
+  <nav class="sb-toc" id="sb-toc-nav">
+    <a href="#portada" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-0" data-admin-only>—</span>
+      <span class="sb-txt" data-editable="toc-txt-0" data-admin-only>Portada<span class="sb-cat">Edición Inaugural</span></span>
+    </a>
+    <a href="#quienes" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-1" data-admin-only>—</span>
+      <span class="sb-txt" data-editable="toc-txt-1" data-admin-only>Quiénes Somos<span class="sb-cat">Institucional</span></span>
+    </a>
+    <a href="#indice" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-2" data-admin-only>—</span>
+      <span class="sb-txt" data-editable="toc-txt-2" data-admin-only>Tabla de Contenido<span class="sb-cat">Índice</span></span>
+    </a>
+    <a href="#editorial" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-3" data-admin-only>03</span>
+      <span class="sb-txt" data-editable="toc-txt-3" data-admin-only>Voces que Persisten<span class="sb-cat">Editorial</span></span>
+    </a>
+    <a href="#articulos" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-4" data-admin-only>08</span>
+      <span class="sb-txt" data-editable="toc-txt-4" data-admin-only>Democracia y Exclusión<span class="sb-cat">Artículo Principal</span></span>
+    </a>
+    <a href="#articulos" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-5" data-admin-only>14</span>
+      <span class="sb-txt" data-editable="toc-txt-5" data-admin-only>Neoliberalismo y Resistencia<span class="sb-cat">Académico</span></span>
+    </a>
+    <a href="#articulos" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-6" data-admin-only>22</span>
+      <span class="sb-txt" data-editable="toc-txt-6" data-admin-only>Identidades en Disputa<span class="sb-cat">Académico</span></span>
+    </a>
+    <a href="#entrevistas" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-7" data-admin-only>30</span>
+      <span class="sb-txt" data-editable="toc-txt-7" data-admin-only>La Cuestión del Estado<span class="sb-cat">Entrevista</span></span>
+    </a>
+    <a href="#entrevistas" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-8" data-admin-only>36</span>
+      <span class="sb-txt" data-editable="toc-txt-8" data-admin-only>Diálogos desde el Sur<span class="sb-cat">Entrevista</span></span>
+    </a>
+    <a href="#resenas" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-9" data-admin-only>42</span>
+      <span class="sb-txt" data-editable="toc-txt-9" data-admin-only>Reseñas Bibliográficas<span class="sb-cat">Reseña</span></span>
+    </a>
+    <a href="#visual" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-10" data-admin-only>50</span>
+      <span class="sb-txt" data-editable="toc-txt-10" data-admin-only>Sección Visual<span class="sb-cat">Visual</span></span>
+    </a>
+    <a href="#critica" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-11" data-admin-only>54</span>
+      <span class="sb-txt" data-editable="toc-txt-11" data-admin-only>El Sistema y sus Fracturas<span class="sb-cat">Crítica</span></span>
+    </a>
+    <a href="#infografias" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-12" data-admin-only>58</span>
+      <span class="sb-txt" data-editable="toc-txt-12" data-admin-only>Datos del Contexto Regional<span class="sb-cat">Infografía</span></span>
+    </a>
+    <a href="#comentarios" class="sb-item" onclick="closeSidebarMobile()">
+      <span class="sb-num" data-editable="toc-num-13" data-admin-only>—</span>
+      <span class="sb-txt" data-editable="toc-txt-13" data-admin-only>Foro de Lectores<span class="sb-cat">Participación</span></span>
+    </a>
+  </nav>
+
+  <!-- DONATIVOS / PATREON -->
+  <div class="sb-donate">
+    <p class="sb-donate-label">Donativos</p>
+    <div class="patreon-box">
+      <p class="patreon-info">Esta revista es independiente y de acceso abierto. Tu apoyo nos permite continuar.</p>
+      <a href="https://www.patreon.com" target="_blank" rel="noopener" class="patreon-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M15.386 0c-4.214 0-7.636 3.423-7.636 7.638 0 4.204 3.422 7.626 7.636 7.626C19.61 15.264 23 11.842 23 7.638 23 3.423 19.61 0 15.386 0M1 23.754h3.915V0H1v23.754z"/></svg>
+        Mano Solidaria — Apóyanos
+      </a>
+    </div>
+  </div>
+</aside>
+
+<!-- Botón toggle del sidebar -->
+<button id="sb-toggle" class="open" onclick="toggleSidebar()" title="Tabla de Contenidos">
+  ☰ Índice
+</button>
+
+<!-- ===== MODAL INSTITUCIONAL ===== -->
+<div id="modal-overlay" onclick="closeModalOutside(event)">
+  <div id="modal-box">
+    <div class="modal-top">
+      <div class="modal-tabs">
+        <button class="mtab active" onclick="switchTab('quienes-somos')">Quiénes Somos</button>
+        <button class="mtab" onclick="switchTab('valores')">Valores</button>
+        <button class="mtab" onclick="switchTab('mision')">Misión</button>
+        <button class="mtab" onclick="switchTab('vision')">Visión</button>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- Quiénes Somos -->
+      <div class="mpanel active" id="mpanel-quienes-somos">
+        <p class="mpanel-title" data-editable="modal-qs-titulo" data-admin-only>Quiénes Somos</p>
+        <span class="mpanel-sub" data-editable="modal-qs-sub" data-admin-only>Prorenalca &amp; Hermucan — Dos voces, un proyecto</span>
+        <div class="mpanel-txt" data-editable="modal-qs-txt" data-admin-only>
+          <p>Prorenalca es una organización comprometida con la reflexión crítica y el análisis profundo de las realidades latinoamericanas y caribeñas. Nacida desde las trincheras del pensamiento comprometido, articula voces académicas, intelectuales y activistas que sostienen que el conocimiento debe servir a la transformación social.</p>
+          <p style="margin-top:1rem">Hermucan es un colectivo cultural enfocado en el estudio y la difusión de las expresiones culturales populares del Caribe y América Latina. Trabaja en la intersección entre la cultura, la memoria colectiva y la resistencia simbólica.</p>
+          <p style="margin-top:1rem">Juntas constituyen un proyecto editorial común: una revista digital que desde 2009 publica análisis académicos, entrevistas, reseñas y materiales visuales orientados a comprender y transformar las realidades del sur global.</p>
+        </div>
+      </div>
+
+      <!-- Valores -->
+      <div class="mpanel" id="mpanel-valores">
+        <p class="mpanel-title" data-editable="modal-val-titulo" data-admin-only>Nuestros Valores</p>
+        <span class="mpanel-sub" data-editable="modal-val-sub" data-admin-only>Los principios que guían nuestra práctica editorial</span>
+        <ul class="mpanel-list" data-editable="modal-val-lista" data-admin-only>
+          <li>Rigor intelectual sin concesiones al facilismo ni a la denuncia superficial.</li>
+          <li>Compromiso ético con los pueblos y comunidades que son objeto de análisis.</li>
+          <li>Acceso abierto al conocimiento, sin restricciones comerciales ni académicas.</li>
+          <li>Pluralidad de voces y perspectivas, con énfasis en las miradas del sur global.</li>
+          <li>Honestidad política: no existe pensamiento neutro, y lo reconocemos abiertamente.</li>
+          <li>Solidaridad con los movimientos sociales y las luchas populares de la región.</li>
+        </ul>
+      </div>
+
+      <!-- Misión -->
+      <div class="mpanel" id="mpanel-mision">
+        <p class="mpanel-title" data-editable="modal-mis-titulo" data-admin-only>Nuestra Misión</p>
+        <span class="mpanel-sub" data-editable="modal-mis-sub" data-admin-only>Lo que nos propusimos construir en 2009</span>
+        <div class="mpanel-txt" data-editable="modal-mis-txt" data-admin-only>
+          <p>Nuestra misión es crear y sostener un espacio de producción y difusión del pensamiento crítico latinoamericano y caribeño, donde el análisis académico riguroso se encuentre con el compromiso político honesto.</p>
+          <p style="margin-top:1rem">Aspiramos a ser un puente entre la academia y los movimientos sociales, entre la teoría y la práctica, entre el norte y el sur del continente. Publicamos para quien quiera pensar más profundamente la realidad que habitamos, sin cobrar por el acceso a ese conocimiento.</p>
+          <p style="margin-top:1rem">Cada edición es un acto político: elegir qué se publica, qué voces se convocan, qué preguntas se formulan, es ya una forma de intervenir en el debate público.</p>
+        </div>
+      </div>
+
+      <!-- Visión -->
+      <div class="mpanel" id="mpanel-vision">
+        <p class="mpanel-title" data-editable="modal-vis-titulo" data-admin-only>Nuestra Visión</p>
+        <span class="mpanel-sub" data-editable="modal-vis-sub" data-admin-only>El horizonte hacia el que caminamos</span>
+        <div class="mpanel-txt" data-editable="modal-vis-txt" data-admin-only>
+          <p>Visionamos una América Latina y el Caribe donde el pensamiento crítico no sea patrimonio exclusivo de las élites académicas, sino una herramienta viva en manos de comunidades, organizaciones y movimientos que trabajan por una región más justa.</p>
+          <p style="margin-top:1rem">Soñamos con una publicación que trascienda el formato de la revista académica tradicional para convertirse en un archivo vivo de las luchas, los análisis y las propuestas que construyen el presente y el futuro de nuestra región.</p>
+          <p style="margin-top:1rem">Nos proyectamos como una red creciente de voces comprometidas, capaz de sostener el debate intelectual con independencia de los poderes económicos e institucionales que suelen definir qué se piensa y cómo se piensa.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN WRAP (se mueve con el sidebar) ===== -->
+<div id="main-wrap">
+
+<!-- PORTADA -->
+<section id="portada">
+  <div class="pbg"></div>
+  <div class="pci"></div><div class="pci"></div><div class="pci"></div>
+  <div class="pmh sr">
+    <p class="pey">Revista Digital de Crítica Sociopolítica &nbsp;·&nbsp; Edición Inaugural</p>
+    <div class="orn"><span>◆ ◆ ◆</span></div>
+    <h1 class="ptit" data-editable="portada-titulo">
+      <span class="t1">Prorenalca</span>
+      <span class="amp">&amp;</span>
+      <span class="t2">Hermucan</span>
+    </h1>
+    <div class="orn"><span>◆ ◆ ◆</span></div>
+    <p class="psub" data-editable="portada-subtitulo">Pensamiento · Análisis · Cultura · Sociedad</p>
+  </div>
+  <div class="pcen sr d1">
+    <div class="ls">
+      <div class="lbox" title="Subir logo Prorenalca">
+        <div class="lbc"></div><div class="lbt"></div>
+        <input type="file" accept="image/*" onchange="loadLogo(event,'li1','lh1')">
+        <img id="li1" alt="Logo Prorenalca">
+        <div class="uh" id="lh1">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M8 12h8M12 8v8"/></svg>
+          <span>Subir Logo</span>
+        </div>
+      </div>
+      <p class="lnm">Prorenalca</p>
+      <p class="ltg">Pensamiento &amp; Acción</p>
+    </div>
+    <div class="cdv"><span>&amp;</span></div>
+    <div class="ls">
+      <div class="lbox" title="Subir logo Hermucan" style="border-color:var(--rur)">
+        <div class="lbc" style="border-color:var(--rose)"></div>
+        <div class="lbt" style="border-color:var(--rose)"></div>
+        <input type="file" accept="image/*" onchange="loadLogo(event,'li2','lh2')">
+        <img id="li2" alt="Logo Hermucan">
+        <div class="uh" id="lh2">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M8 12h8M12 8v8"/></svg>
+          <span>Subir Logo</span>
+        </div>
+      </div>
+      <p class="lnm" style="color:var(--rosep)">Hermucan</p>
+      <p class="ltg">Cultura &amp; Sociedad</p>
+    </div>
+  </div>
+
+  <!-- Botones institucionales en portada -->
+  <div class="portada-btns sr d2">
+    <button class="pb-btn" onclick="openModal('quienes-somos')">
+      <span class="pb-icon">◈</span> Quiénes Somos
+    </button>
+    <button class="pb-btn" onclick="openModal('valores')">
+      <span class="pb-icon">◆</span> Valores
+    </button>
+    <button class="pb-btn" onclick="openModal('mision')">
+      <span class="pb-icon">✦</span> Misión
+    </button>
+    <button class="pb-btn" onclick="openModal('vision')">
+      <span class="pb-icon">◎</span> Visión
+    </button>
+  </div>
+</section>
+
+<hr class="dr">
+
+<!-- QUIÉNES SOMOS -->
+<section id="quienes">
+  <div class="W">
+    <div class="sr"><div class="slr"><span class="lb">Institucional</span></div><h2 class="sh">Quiénes <em>Somos</em></h2><div class="orn" style="margin:1rem 0 2.5rem"><span>· · ·</span></div></div>
+    <div class="qs-grid sr d1">
+      <div class="qs-org">
+        <p class="qs-org-name" data-editable="qs-pro-nombre" data-admin-only>Prorenalca</p>
+        <span class="qs-org-tag" data-editable="qs-pro-tag" data-admin-only>Pensamiento &amp; Acción</span>
+        <p class="qs-text" data-editable="qs-pro-texto" data-admin-only>Prorenalca es una organización comprometida con la reflexión crítica y el análisis profundo de las realidades latinoamericanas y caribeñas. Nacida desde las trincheras del pensamiento comprometido, articula voces académicas, intelectuales y activistas que sostienen que el conocimiento debe servir a la transformación social. Su labor editorial busca abrir espacios donde el rigor teórico no esté reñido con el posicionamiento político honesto.</p>
+      </div>
+      <div class="qs-org rose-accent">
+        <p class="qs-org-name" data-editable="qs-her-nombre" data-admin-only>Hermucan</p>
+        <span class="qs-org-tag" data-editable="qs-her-tag" data-admin-only>Cultura &amp; Sociedad</span>
+        <p class="qs-text" data-editable="qs-her-texto" data-admin-only>Hermucan es un colectivo cultural enfocado en el estudio y la difusión de las expresiones culturales populares del Caribe y América Latina. Trabaja en la intersección entre la cultura, la memoria colectiva y la resistencia simbólica. Hermucan cree que el arte y la cultura popular son formas legítimas de conocimiento político, y que ningún análisis de nuestras sociedades puede prescindir de ellas.</p>
+      </div>
+    </div>
+    <div class="qs-mission sr d2">
+      <div class="slr" style="margin-bottom:1rem"><span class="lb">Nuestra Misión</span></div>
+      <div class="bt" data-editable="qs-mision" data-admin-only><p>Juntas, estas dos organizaciones constituyen un proyecto editorial común: una revista digital que desde 2009 publica análisis académicos, entrevistas, reseñas y materiales visuales orientados a comprender y transformar las realidades del sur global. La publicación es de acceso abierto, sin restricciones comerciales, financiada por el compromiso voluntario de quienes creen en la necesidad de estos espacios.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="dr">
+
+<!-- ÍNDICE -->
+<section id="indice">
+  <div class="W">
+    <div class="sr"><div class="slr"><span class="lb">Contenido</span></div><h2 class="sh">Tabla de <em>Contenido</em></h2><div class="orn" style="margin-top:1rem"><span>· · ·</span></div></div>
+    <div class="toc sr d1">
+      <a href="#editorial" class="trow"><span class="tnum">03</span><span class="ttt">Editorial: Voces que persisten</span><span class="tdt"></span><span class="tpg">03</span><span class="tcat">Editorial</span></a>
+      <a href="#articulos" class="trow"><span class="tnum">08</span><span class="ttt">Democracia y exclusión estructural</span><span class="tdt"></span><span class="tpg">08</span><span class="tcat">Académico</span></a>
+      <a href="#articulos" class="trow"><span class="tnum">14</span><span class="ttt">Neoliberalismo y resistencia popular</span><span class="tdt"></span><span class="tpg">14</span><span class="tcat">Académico</span></a>
+      <a href="#articulos" class="trow"><span class="tnum">22</span><span class="ttt">Identidades en disputa: género y poder</span><span class="tdt"></span><span class="tpg">22</span><span class="tcat">Académico</span></a>
+      <a href="#entrevistas" class="trow"><span class="tnum">30</span><span class="ttt">Entrevista: La cuestión del Estado</span><span class="tdt"></span><span class="tpg">30</span><span class="tcat">Entrevista</span></a>
+      <a href="#entrevistas" class="trow"><span class="tnum">36</span><span class="ttt">Diálogos desde el Sur global</span><span class="tdt"></span><span class="tpg">36</span><span class="tcat">Entrevista</span></a>
+      <a href="#resenas" class="trow"><span class="tnum">42</span><span class="ttt">Reseña: Memoria y olvido político</span><span class="tdt"></span><span class="tpg">42</span><span class="tcat">Reseña</span></a>
+      <a href="#resenas" class="trow"><span class="tnum">46</span><span class="ttt">Reseña: Arte y resistencia urbana</span><span class="tdt"></span><span class="tpg">46</span><span class="tcat">Reseña</span></a>
+      <a href="#visual" class="trow"><span class="tnum">50</span><span class="ttt">Sección Visual: Territorios</span><span class="tdt"></span><span class="tpg">50</span><span class="tcat">Visual</span></a>
+      <a href="#critica" class="trow"><span class="tnum">54</span><span class="ttt">Crítica: El sistema y sus fracturas</span><span class="tdt"></span><span class="tpg">54</span><span class="tcat">Crítica</span></a>
+      <a href="#infografias" class="trow"><span class="tnum">58</span><span class="ttt">Infografías: Datos del contexto regional</span><span class="tdt"></span><span class="tpg">58</span><span class="tcat">Infografía</span></a>
+    </div>
+  </div>
+</section>
+
+<hr class="dr">
+
+<!-- EDITORIAL -->
+<section id="editorial">
+  <div class="W">
+    <div class="sr"><div class="slr"><span class="lb">Editorial</span></div><h2 class="sh" data-editable="editorial-titulo"><em>Voces</em> que Persisten</h2><div class="orn" style="margin:1rem 0 2.5rem"><span>· · ·</span></div></div>
+    <div class="ecols sr d1"><div class="ecb"></div><div class="ect"></div>
+      <div class="ecol">
+        <div class="bt drp" data-editable="editorial-col1">
+          <p>En un momento histórico marcado por la aceleración de las transformaciones sociopolíticas en América Latina y el Caribe, la necesidad de espacios de reflexión crítica y comprometida se vuelve imperativa. Prorenalca y Hermucan nacen como respuesta a esa urgencia: una plataforma que reúne voces académicas, intelectuales y activistas comprometidas con el análisis profundo de nuestras realidades comunes.</p>
+          <p>Esta primera edición llega cargada de esperanza y de rigor intelectual. Hemos convocado a investigadoras e investigadores cuyo trabajo ilumina los ángulos menos visibles del poder, la exclusión y la resistencia.</p>
+        </div>
+        <div class="pq"><p data-editable="editorial-cita">"No existe pensamiento verdaderamente crítico sin el compromiso ético con los pueblos que habitan y transforman esas realidades que analizamos."</p><cite data-editable="editorial-cita-autor">— Comité Editorial</cite></div>
+        <div class="bt" data-editable="editorial-col1b"><p>Sus artículos no son simples ejercicios académicos: son intervenciones en el debate público, herramientas para comprender y transformar. La crítica que animará estas páginas no es la de la denuncia fácil ni la del panfleto. Aspiramos a una crítica rigurosa en sus fundamentos teóricos y honesta en su posicionamiento político.</p></div>
+      </div>
+      <div class="ecol">
+        <div class="bt" data-editable="editorial-col2">
+          <p>En este número encontrarán artículos que abordan las contradicciones de la democracia liberal frente a las demandas de los movimientos populares, análisis sobre las configuraciones del neoliberalismo en la región, reflexiones sobre la cuestión identitaria y de género como terrenos de disputa política.</p>
+          <p>Las reseñas bibliográficas y la sección visual completan una publicación que concibe el conocimiento como un territorio plural, donde la imagen y la palabra, el testimonio y la teoría, se entrelazan en una conversación siempre incompleta, siempre necesaria.</p>
+          <p>Bienvenidos a este espacio. Que su lectura sea también un acto político.</p>
+        </div>
+        <div class="esig"><div><p class="sn" data-editable="editorial-firma">El Comité Editorial</p><p class="sr_r" data-editable="editorial-firma2">Prorenalca &amp; Hermucan</p></div><p class="si" data-editable="editorial-vol">Vol. I · No. 1<br>2009</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="dr">
+
+<!-- ARTÍCULOS -->
+<section id="articulos">
+  <div class="W">
+    <div class="sr"><div class="slr"><span class="lb">Artículos Académicos</span></div><h2 class="sh" data-editable="art-titulo">Investigación y <em>Conocimiento</em></h2><div class="orn" style="margin:1rem 0 2.5rem"><span>· · ·</span></div></div>
+    <div class="alead sr d1"><div class="alb"></div><div class="alt"></div>
+      <div class="alf">
+        <p class="acat" data-editable="art1-cat">Artículo Principal · Ciencia Política</p>
+        <h3 class="atit" data-editable="art1-tit">Democracia y Exclusión Estructural en América Latina: Entre el Discurso Igualitario y la Práctica Excluyente</h3>
+        <p class="aab" data-editable="art1-abs">Este artículo examina las tensiones constitutivas de los sistemas democráticos latinoamericanos, donde la formalidad del sufragio universal coexiste con mecanismos estructurales de exclusión política, económica y simbólica. A través de un análisis comparado de seis países se propone una tipología de las formas de exclusión democrática que trasciende las categorías tradicionales del autoritarismo.</p>
+        <!-- Imagen artículo principal -->
+        <div class="art-img-wrap" id="aimg-1">
+          <div class="art-img-placeholder" onclick="document.getElementById('afile-1').click()">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Agregar imagen al artículo</span>
+            <input type="file" id="afile-1" accept="image/*" onchange="loadArtImg(event,'aimg-1')">
+          </div>
+          <button class="art-img-remove" onclick="removeArtImg('aimg-1')" title="Quitar imagen">✕</button>
+        </div>
+        <p class="art-img-caption" data-editable="art1-caption" style="display:none" id="acap-1">Descripción de la imagen</p>
+        <div class="aby"><div class="bdot">MD</div><div><span class="bname" data-editable="art1-autor">Dra. Marcela Durán</span><span class="binst" data-editable="art1-inst">Universidad Central de Venezuela</span></div></div>
+        <div class="kws" data-editable="art1-kws"><span class="kw">Democracia</span><span class="kw">Exclusión</span><span class="kw">América Latina</span><span class="kw">Ciudadanía</span><span class="kw">Poder</span></div>
+      </div>
+      <div class="alr">
+        <div class="anum">01</div>
+        <div>
+          <div class="amet"><span class="mkey">Páginas</span><span class="mval" data-editable="art1-pags">08 — 13</span></div>
+          <div class="amet"><span class="mkey">Metodología</span><span class="mval" data-editable="art1-met">Análisis comparado</span></div>
+          <div class="amet"><span class="mkey">Recibido</span><span class="mval" data-editable="art1-rec">Enero 2009</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="agrid sr d2">
+      <div class="ac"><p class="acat" data-editable="art2-cat">Economía Política</p><h3 class="atit" data-editable="art2-tit">Neoliberalismo y Resistencia Popular</h3><div class="art-img-wrap" id="aimg-2"><div class="art-img-placeholder" onclick="document.getElementById('afile-2').click()"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Imagen</span><input type="file" id="afile-2" accept="image/*" onchange="loadArtImg(event,'aimg-2')"></div><button class="art-img-remove" onclick="removeArtImg('aimg-2')">✕</button></div><p class="aab" data-editable="art2-abs">Análisis de las formas de resistencia popular ante las políticas neoliberales, con énfasis en movimientos de trabajadores y comunidades indígenas como sujetos colectivos que rearticulan demandas históricas.</p><div class="aby"><div class="bdot">JR</div><div><span class="bname" data-editable="art2-autor">Prof. José Ramírez</span><span class="binst" data-editable="art2-inst">UNAM · México</span></div></div><div class="kws" data-editable="art2-kws"><span class="kw">Neoliberalismo</span><span class="kw">Resistencia</span><span class="kw">Movimientos</span></div></div>
+      <div class="ac"><p class="acat" data-editable="art3-cat">Estudios de Género</p><h3 class="atit" data-editable="art3-tit">Identidades en Disputa: Género y Poder</h3><div class="art-img-wrap" id="aimg-3"><div class="art-img-placeholder" onclick="document.getElementById('afile-3').click()"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Imagen</span><input type="file" id="afile-3" accept="image/*" onchange="loadArtImg(event,'aimg-3')"></div><button class="art-img-remove" onclick="removeArtImg('aimg-3')">✕</button></div><p class="aab" data-editable="art3-abs">Exploración de cómo las identidades de género se constituyen como terrenos de lucha política, con énfasis en las demandas del movimiento feminista en el espacio público latinoamericano.</p><div class="aby"><div class="bdot">AC</div><div><span class="bname" data-editable="art3-autor">Dra. Ana Castellanos</span><span class="binst" data-editable="art3-inst">UBA · Argentina</span></div></div><div class="kws" data-editable="art3-kws"><span class="kw">Género</span><span class="kw">Feminismo</span><span class="kw">Política</span></div></div>
+      <div class="ac"><p class="acat" data-editable="art4-cat">Historia &amp; Memoria</p><h3 class="atit" data-editable="art4-tit">Construcción Social de la Memoria en Contextos de Violencia</h3><div class="art-img-wrap" id="aimg-4"><div class="art-img-placeholder" onclick="document.getElementById('afile-4').click()"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Imagen</span><input type="file" id="afile-4" accept="image/*" onchange="loadArtImg(event,'aimg-4')"></div><button class="art-img-remove" onclick="removeArtImg('aimg-4')">✕</button></div><p class="aab" data-editable="art4-abs">Reflexión teórica y empírica sobre los procesos de construcción y disputa de la memoria colectiva en sociedades que han atravesado períodos de violencia política estatal.</p><div class="aby"><div class="bdot">LM</div><div><span class="bname" data-editable="art4-autor">Dr. Luis Moreno</span><span class="binst" data-editable="art4-inst">Universidad de Chile</span></div></div><div class="kws" data-editable="art4-kws"><span class="kw">Memoria</span><span class="kw">Violencia</span><span class="kw">Estado</span></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="dr">
+
+<!-- ENTREVISTAS -->
+<section id="entrevistas">
+  <div class="W">
+    <div class="sr"><div class="slr"><span class="lb">Entrevistas</span></div><h2 class="sh" data-editable="ent-titulo">Diálogos con el <em>Pensamiento Crítico</em></h2><div class="orn" style="margin:1rem 0 3rem"><span>· · ·</span></div></div>
+    <div class="iblk sr d1">
+      <div class="pbox"><div class="pinn"><span class="psil">◈</span><div class="pftr"><span class="pnm" data-editable="ent1-nombre">Roberto Figueroa Salas</span><span class="prl" data-editable="ent1-rol">Politólogo y ensayista</span></div></div></div>
+      <div>
+        <span class="itg" data-editable="ent1-tag">Primera Entrevista</span>
+        <h3 class="ihtl" data-editable="ent1-tit">"El Estado no es neutral: es el condensado de las relaciones de fuerza de una época"</h3>
+        <div class="qa q"><span class="qal">Pregunta</span><p class="qat" data-editable="ent1-p1">¿Cómo analiza la relación entre las instituciones democráticas formales y los poderes económicos que operan al margen o por encima de esas instituciones en la región?</p></div>
+        <div class="qa a"><span class="qal">Respuesta</span><p class="qat" data-editable="ent1-r1">Lo que llamamos "instituciones democráticas" no flota en el vacío: son el resultado de luchas históricas y de victorias parciales de distintos sectores sociales. El problema es que con demasiada frecuencia tendemos a fetichizar esas instituciones, a tratarlas como si fueran espacios neutros de mediación, cuando en realidad están atravesadas por las asimetrías de poder que caracterizan a nuestras sociedades.</p></div>
+        <div class="qa q"><span class="qal">Pregunta</span><p class="qat" data-editable="ent1-p2">¿Qué papel le asigna a los movimientos sociales en la reconfiguración de esos equilibrios?</p></div>
+        <div class="qa a"><span class="qal">Respuesta</span><p class="qat" data-editable="ent1-r2">Los movimientos sociales han demostrado históricamente ser los actores que más consistentemente han empujado la frontera de lo posible. Hablo de esas articulaciones más porosas, que sostienen demandas durante décadas sin garantías de victoria. Ahí está la energía política que todavía puede sorprendernos.</p></div>
+      </div>
+    </div>
+    <div class="iblk sr d2">
+      <div class="pbox" style="border-color:var(--rur)"><div class="pinn"><span class="psil">◈</span><div class="pftr"><span class="pnm" data-editable="ent2-nombre">Carmen Alvarado Ríos</span><span class="prl" data-editable="ent2-rol">Socióloga y activista cultural</span></div></div></div>
+      <div>
+        <span class="itg" data-editable="ent2-tag">Segunda Entrevista</span>
+        <h3 class="ihtl" data-editable="ent2-tit">"La cultura popular es política, siempre lo ha sido; lo que cambia es quién tiene el poder de nombrarla"</h3>
+        <div class="qa q"><span class="qal">Pregunta</span><p class="qat" data-editable="ent2-p1">En su investigación sobre prácticas culturales en barrios populares, ¿qué formas de politización ha encontrado que los análisis convencionales no reconocen?</p></div>
+        <div class="qa a"><span class="qal">Respuesta</span><p class="qat" data-editable="ent2-r1">La economía solidaria informal, las redes de cuidado comunitario, la música y el grafiti como archivos vivos de la memoria colectiva. Ninguna aparece en las tipologías estándar de la participación política, y sin embargo son profundamente políticas. El problema es que los académicos muchas veces buscamos el megáfono y no sabemos escuchar el susurro.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="dr">
+
+<!-- RESEÑAS -->
+<section id="resenas">
+  <div class="W">
+    <div class="sr"><div class="slr"><span class="lb">Reseñas</span></div><h2 class="sh">Lecturas <em>Recomendadas</em></h2><div class="orn" style="margin:1rem 0 2.5rem"><span>· · ·</span></div></div>
+    <div class="rgrid sr d1">
+      <div class="rcard"><p class="rtype" data-editable="res1-tipo">Libro · Ciencia Política</p><h3 class="rtit" data-editable="res1-tit">Hegemonía y Estrategia Socialista</h3><p class="raut" data-editable="res1-aut">Ernesto Laclau y Chantal Mouffe</p><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="rtxt" data-editable="res1-txt">Texto imprescindible para comprender las transformaciones del pensamiento político de izquierda. Laclau y Mouffe proponen una reformulación del concepto de hegemonía que abre nuevas posibilidades para pensar la articulación de demandas democráticas. Una lectura desafiante y productiva.</p><p class="rby">Reseña por <span data-editable="res1-por">Dra. Valentina Ospina</span></p></div>
+      <div class="rcard"><p class="rtype" data-editable="res2-tipo">Libro · Historia</p><h3 class="rtit" data-editable="res2-tit">Las Venas Abiertas de América Latina</h3><p class="raut" data-editable="res2-aut">Eduardo Galeano</p><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="rtxt" data-editable="res2-txt">La reedición de este clásico nos recuerda que comprender el presente latinoamericano es imposible sin el examen honesto de su historia de despojo. Galeano escribe con la precisión del historiador y el aliento del poeta. Su actualidad no ha disminuido.</p><p class="rby">Reseña por <span data-editable="res2-por">Prof. Miguel Ángel Fuentes</span></p></div>
+      <div class="rcard"><p class="rtype" data-editable="res3-tipo">Exposición · Arte Político</p><h3 class="rtit" data-editable="res3-tit">Territorios en Disputa</h3><p class="raut" data-editable="res3-aut">Colectivo Artístico Frontera Sur</p><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star e">★</span></div><p class="rtxt" data-editable="res3-txt">Una muestra que interpela al espectador desde los márgenes del sistema artístico institucional. El Colectivo utiliza materiales de desecho y registros de comunidades desplazadas para construir una narrativa que denuncia sin caer en el panfleto.</p><p class="rby">Reseña por <span data-editable="res3-por">Lic. Sara Montoya</span></p></div>
+      <div class="rcard"><p class="rtype" data-editable="res4-tipo">Documental · Cine</p><h3 class="rtit" data-editable="res4-tit">El Tiempo de las Mariposas</h3><p class="raut" data-editable="res4-aut">Dir. María Elena Salazar</p><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="rtxt" data-editable="res4-txt">Un documental que recupera testimonios de mujeres organizadas en contextos de represión política. La directora logra una mirada que honra sin romantizar, que documenta sin reducir a los sujetos a meras víctimas.</p><p class="rby">Reseña por <span data-editable="res4-por">Dra. Claudia Bermúdez</span></p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="dr">
+
+<!-- VISUAL -->
+<section id="visual">
+  <div class="vh"><div class="W"><div class="sr"><div class="slr"><span class="lb">Sección Visual</span></div><h2 class="sh"><em>Territorios</em> y Miradas</h2><div class="orn" style="margin:1rem 0 0"><span>· · ·</span></div></div></div></div>
+  <div class="vmosaic sr">
+    <div class="vcell"><div class="vov"></div><span class="vic">◈</span><div class="vinf"><span class="vcat">Cartografía</span><p class="vtit">Territorios del Poder</p><p class="vdesc">El espacio como terreno de disputas políticas y culturales en la región.</p></div></div>
+    <div class="vcell"><div class="vov"></div><span class="vic">✊</span><div class="vinf"><span class="vcat">Arte Urbano</span><p class="vtit">Resistencia en Muros</p><p class="vdesc">Murales y grafitis como archivo vivo de la memoria popular.</p></div></div>
+    <div class="vcell"><div class="vov"></div><span class="vic">📸</span><div class="vinf"><span class="vcat">Fotografía</span><p class="vtit">Archivo Visual</p><p class="vdesc">Documentación de movilizaciones sociales 1990–2009.</p></div></div>
+    <div class="vcell"><div class="vov"></div><span class="vic">🎨</span><div class="vinf"><span class="vcat">Arte Comunitario</span><p class="vtit">Estéticas del Margen</p><p class="vdesc">Producción artística fuera del sistema institucional.</p></div></div>
+    <div class="vcell"><div class="vov"></div><span class="vic">🌿</span><div class="vinf"><span class="vcat">Territorio</span><p class="vtit">Tierra y Derecho</p><p class="vdesc">Luchas indígenas por la soberanía territorial.</p></div></div>
+  </div>
+</section>
+
+<hr class="dr">
+
+<!-- CRÍTICA -->
+<section id="critica">
+  <div class="W">
+    <div class="sr"><div class="slr"><span class="lb">Crítica Sociopolítica</span></div><h2 class="sh">El Sistema y sus <span class="ros">Fracturas</span></h2><div class="orn" style="margin:1rem 0 2.5rem"><span>· · ·</span></div></div>
+    <div class="crlay sr d1">
+      <div>
+        <h3 class="crhl" data-editable="crit-tit">La Democracia que No Llega: Brecha entre Promesas Institucionales y Realidades Populares</h3>
+        <p class="crsub" data-editable="crit-sub">Una reflexión crítica sobre los límites del horizonte democrático liberal en América Latina</p>
+        <div class="bt" data-editable="crit-txt1">
+          <p>Existe una distancia que se ha vuelto tan familiar que casi ya no la vemos: la que separa el lenguaje de los derechos del lenguaje de la vida cotidiana de millones de personas. Las constituciones más progresistas conviven con los índices de desigualdad más escandalosos del planeta.</p>
+          <p>Esta contradicción no es un accidente ni una anomalía transitoria. Es el resultado de opciones históricas, de victorias parciales de determinados sectores sociales y de la capacidad de las élites para neutralizar reformas que amenacen sus privilegios fundamentales.</p>
+        </div>
+        <div class="hlbox"><p data-editable="crit-cita">"No podemos seguir analizando la democracia latinoamericana con instrumentos teóricos diseñados para comprender experiencias históricas radicalmente distintas. Necesitamos conceptos que nazcan de nuestras propias contradicciones."</p></div>
+        <div class="bt" data-editable="crit-txt2">
+          <p>El neoconstitucionalismo latinoamericano ha representado un intento genuino de expandir el horizonte de derechos. Pero la distancia entre la letra constitucional y la práctica institucional sigue siendo un abismo que ninguna buena voluntad por sí sola puede salvar.</p>
+          <p>Los movimientos sociales, en su heterogeneidad y en sus contradicciones, continúan siendo los actores que más sistemáticamente han problematizado esa distancia, convirtiendo la brecha entre promesa y realidad en combustible para la organización colectiva.</p>
+        </div>
+      </div>
+      <div>
+        <div class="spanel"><div class="sph">Datos del Contexto</div><div class="spb"><div class="stl"><span class="sll">Desigualdad (Gini promedio)</span><span class="slv">0.52</span></div><div class="stl"><span class="sll">Pobreza regional</span><span class="slv">33%</span></div><div class="stl"><span class="sll">Voto femenino (países)</span><span class="slv">18/20</span></div><div class="stl"><span class="sll">Acceso a justicia efectiva</span><span class="slv">41%</span></div></div></div>
+        <div class="spanel"><div class="sph">Cronología Crítica</div><div class="spb"><div class="tli"><span class="tly">1989</span><p class="tlev">Consenso de Washington: inicio del ciclo neoliberal</p></div><div class="tli"><span class="tly">1994</span><p class="tlev">Levantamiento zapatista: nuevas formas de resistencia</p></div><div class="tli"><span class="tly">1999</span><p class="tlev">Venezuela: inicio del ciclo constituyente regional</p></div><div class="tli"><span class="tly">2001</span><p class="tlev">Argentina: crisis y auge del movimiento piquetero</p></div><div class="tli"><span class="tly">2009</span><p class="tlev">Golpe en Honduras: límites de la democracia regional</p></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="dr">
+
+<!-- INFOGRAFÍAS -->
+<section id="infografias">
+  <div class="W">
+    <div class="sr"><div class="slr"><span class="lb">Infografías</span></div><h2 class="sh">Datos del <em>Contexto Regional</em></h2><div class="orn" style="margin:1rem 0 1.5rem"><span>· · ·</span></div><p class="iintro">Visualización de indicadores sociopolíticos, económicos y culturales de América Latina y el Caribe al cierre del período 2000–2009.</p></div>
+
+    <!-- ESTADÍSTICAS: solo admin -->
+    <div class="admin-only">
+      <div style="background:rgba(200,168,75,.06);border:1px solid var(--ru);border-left:3px solid var(--gold);padding:1rem 1.4rem;margin-bottom:2rem;display:flex;align-items:center;gap:.8rem">
+        <span style="font-size:1.1rem">🔒</span>
+        <span style="font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase">Panel de Estadísticas — Solo Administradores</span>
+      </div>
+    </div>
+
+    <div class="isr sr d1 admin-only">
+      <div class="isc"><span class="isb" id="s1">0%</span><span class="isl">Población en Pobreza</span><span class="isd">Porcentaje bajo la línea de pobreza establecida por la CEPAL en 2009.</span></div>
+      <div class="isc"><span class="isb" id="s2">0</span><span class="isl">Coeficiente Gini Promedio</span><span class="isd">Índice de desigualdad: 0 igualdad perfecta, 1 desigualdad absoluta.</span></div>
+      <div class="isc"><span class="isb" id="s3">0%</span><span class="isl">Tasa de Urbanización</span><span class="isd">Proporción que habita en áreas urbanas. La más alta entre regiones en desarrollo.</span></div>
+    </div>
+    <div class="ibars sr d2">
+      <p class="ibt">Índice de Desarrollo Humano por País — Muestra Regional 2009</p>
+      <p class="ibs">Escala 0–1 · Fuente: PNUD 2009</p>
+      <div class="bchart">
+        <div class="bari"><span class="barn">Chile</span><div class="bartr"><div class="barf" style="width:87.8%"></div></div><span class="barp">0.878</span></div>
+        <div class="bari"><span class="barn">Argentina</span><div class="bartr"><div class="barf" style="width:86.6%"></div></div><span class="barp">0.866</span></div>
+        <div class="bari"><span class="barn">Uruguay</span><div class="bartr"><div class="barf" style="width:85.9%"></div></div><span class="barp">0.859</span></div>
+        <div class="bari"><span class="barn">Venezuela</span><div class="bartr"><div class="barf" style="width:76.2%"></div></div><span class="barp">0.762</span></div>
+        <div class="bari"><span class="barn">Colombia</span><div class="bartr"><div class="barf" style="width:71.0%"></div></div><span class="barp">0.710</span></div>
+        <div class="bari"><span class="barn">Bolivia</span><div class="bartr"><div class="barf" style="width:64.3%"></div></div><span class="barp">0.643</span></div>
+        <div class="bari"><span class="barn">Honduras</span><div class="bartr"><div class="barf" style="width:60.4%"></div></div><span class="barp">0.604</span></div>
+      </div>
+    </div>
+    <div class="imix sr d2">
+      <div class="iring">
+        <p class="ipt">Composición del Gasto Social Regional</p>
+        <div class="rwrap">
+          <svg width="130" height="130" viewBox="0 0 130 130" style="flex-shrink:0">
+            <circle cx="65" cy="65" r="50" fill="none" stroke="rgba(200,168,75,.08)" stroke-width="20"/>
+            <circle cx="65" cy="65" r="50" fill="none" stroke="#c8a84b" stroke-width="20" stroke-dasharray="107 207" stroke-dashoffset="0" transform="rotate(-90 65 65)"/>
+            <circle cx="65" cy="65" r="50" fill="none" stroke="#d4688e" stroke-width="20" stroke-dasharray="88 226" stroke-dashoffset="-107" transform="rotate(-90 65 65)"/>
+            <circle cx="65" cy="65" r="50" fill="none" stroke="#6B9CC4" stroke-width="20" stroke-dasharray="56 257" stroke-dashoffset="-195" transform="rotate(-90 65 65)"/>
+            <circle cx="65" cy="65" r="50" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="20" stroke-dasharray="63 251" stroke-dashoffset="-251" transform="rotate(-90 65 65)"/>
+            <text x="65" y="60" text-anchor="middle" font-family="Cinzel,serif" font-size="9" fill="#c8a84b">GASTO</text>
+            <text x="65" y="73" text-anchor="middle" font-family="Cinzel,serif" font-size="9" fill="#9da8c7">SOCIAL</text>
+          </svg>
+          <div class="rleg">
+            <div class="ritem"><span class="rdot" style="background:#c8a84b"></span><span class="rilbl">Educación</span><span class="ripct">34%</span></div>
+            <div class="ritem"><span class="rdot" style="background:#d4688e"></span><span class="rilbl">Salud</span><span class="ripct">28%</span></div>
+            <div class="ritem"><span class="rdot" style="background:#6B9CC4"></span><span class="rilbl">Vivienda</span><span class="ripct">18%</span></div>
+            <div class="ritem"><span class="rdot" style="background:rgba(255,255,255,.2)"></span><span class="rilbl">Otros</span><span class="ripct">20%</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="itl">
+        <p class="ipt">Hitos Políticos 2000–2009</p>
+        <div class="vtl">
+          <div class="vtitem"><span class="vtdot"></span><span class="vtyr">2000</span><p class="vttx">Caída de Fujimori en Perú. Inicio de transición democrática.</p></div>
+          <div class="vtitem"><span class="vtdot"></span><span class="vtyr">2002</span><p class="vttx">Crisis argentina. Auge de movimientos sociales autónomos.</p></div>
+          <div class="vtitem"><span class="vtdot"></span><span class="vtyr">2003</span><p class="vttx">Lula asume en Brasil. Giro político latinoamericano.</p></div>
+          <div class="vtitem"><span class="vtdot"></span><span class="vtyr">2005</span><p class="vttx">Evo Morales: primer presidente indígena en Bolivia.</p></div>
+          <div class="vtitem"><span class="vtdot"></span><span class="vtyr">2008</span><p class="vttx">Nuevas constituciones en Ecuador y Bolivia.</p></div>
+          <div class="vtitem"><span class="vtdot"></span><span class="vtyr">2009</span><p class="vttx">Golpe en Honduras. Tensiones en el sistema regional.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="itabpanel sr d3 admin-only">
+      <p class="ipt">Indicadores de Participación Política y Libertades — Selección Regional 2009</p>
+      <table class="itable">
+        <thead><tr><th>País</th><th>Participación Electoral</th><th>Libertad de Prensa</th><th>Índice Democrático</th><th>Tendencia</th></tr></thead>
+        <tbody>
+          <tr><td>Uruguay</td><td><span class="tdv">89%</span><span class="mbar"><span class="mfill" style="width:89%"></span></span></td><td><span class="ibdg md">Media-Alta</span></td><td><span class="tdv">7.9</span></td><td><span class="ibdg md">Estable ↗</span></td></tr>
+          <tr><td>Argentina</td><td><span class="tdv">81%</span><span class="mbar"><span class="mfill" style="width:81%"></span></span></td><td><span class="ibdg md">Media</span></td><td><span class="tdv">6.8</span></td><td><span class="ibdg md">Variable ↔</span></td></tr>
+          <tr><td>Venezuela</td><td><span class="tdv">74%</span><span class="mbar"><span class="mfill" style="width:74%"></span></span></td><td><span class="ibdg hi">Restringida</span></td><td><span class="tdv">5.2</span></td><td><span class="ibdg hi">Tensión ↓</span></td></tr>
+          <tr><td>Bolivia</td><td><span class="tdv">90%</span><span class="mbar"><span class="mfill" style="width:90%"></span></span></td><td><span class="ibdg md">Media</span></td><td><span class="tdv">6.1</span></td><td><span class="ibdg md">Transición ↗</span></td></tr>
+          <tr><td>Honduras</td><td><span class="tdv">49%</span><span class="mbar"><span class="mfill" style="width:49%"></span></span></td><td><span class="ibdg hi">Crítica</span></td><td><span class="tdv">3.9</span></td><td><span class="ibdg hi">Regresión ↓</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<hr class="dr">
+
+<!-- COMENTARIOS -->
+<section id="comentarios">
+  <div class="W">
+    <div class="sr"><div class="slr"><span class="lb">Participación</span></div><h2 class="sh">Comentarios y <em>Diálogo</em></h2><div class="orn" style="margin:1rem 0 .5rem"><span>· · ·</span></div><p style="font-family:'IM Fell English',serif;font-style:italic;color:var(--txd);font-size:.95rem;margin-bottom:2rem">Cada edición admite un máximo de 30 comentarios. Participa con rigor y respeto académico.</p></div>
+    <div class="cwrap sr d1">
+      <div class="cbox">
+        <div class="chead"><span class="chtit">Foro de Lectores</span><span class="chcnt"><b id="cCount">3</b> / 30 · Edición Vol. I</span></div>
+        <div class="clist" id="cList">
+          <div class="citem"><div class="cihd"><div class="cav">RG</div><div><span class="cnm">Rosa Guerrero</span><span class="cdt">Caracas · Marzo 2009</span></div></div><p class="ctx">El editorial abre con una honestidad que rara vez encontramos en publicaciones académicas. La advertencia contra la "denuncia fácil" es especialmente pertinente. Agradezco este espacio.</p></div>
+          <div class="citem"><div class="cihd"><div class="cav">PM</div><div><span class="cnm">Pedro Mendoza</span><span class="cdt">Bogotá · Marzo 2009</span></div></div><p class="ctx">El artículo de la Dra. Durán sobre democracia y exclusión toca una contradicción que vivimos cotidianamente. La tipología que propone me parece un aporte teórico significativo que merece debate amplio.</p></div>
+          <div class="citem"><div class="cihd"><div class="cav">LV</div><div><span class="cnm">Laura Villalobos</span><span class="cdt">Ciudad de México · Marzo 2009</span></div></div><p class="ctx">La entrevista con Carmen Alvarado Ríos es lo más valioso de esta edición. Su observación sobre "el megáfono y el susurro" debería ser lectura obligatoria en todos los programas de ciencias sociales.</p></div>
+        </div>
+        <div class="clim" id="cLimit">◆ &nbsp; Límite de 30 comentarios alcanzado · Nueva edición próximamente &nbsp; ◆</div>
+        <div class="cform" id="cForm">
+          <div class="cfrow"><div class="cfg" style="margin-bottom:0"><label class="cfl">Nombre</label><input class="cfi" id="cfName" placeholder="Tu nombre"></div><div class="cfg" style="margin-bottom:0"><label class="cfl">Ciudad · País</label><input class="cfi" id="cfCity" placeholder="Ciudad, País"></div></div>
+          <div class="cfg" style="margin-top:.9rem"><label class="cfl">Comentario</label><textarea class="cfta" id="cfText" placeholder="Comparte tu reflexión académica sobre el contenido de esta edición…"></textarea></div>
+          <div class="cffoot"><button class="cfbtn" onclick="postComment()">Enviar Comentario →</button><span class="cfnote">Próxima actualización: Edición N.° 2</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="W">
+    <div class="fg">
+      <div><p class="fbn" data-editable="footer-nombre">Prorenalca &amp; Hermucan</p><p class="fbs" data-editable="footer-sub">Revista Digital · Crítica Sociopolítica</p><p class="fbd" data-editable="footer-desc">Publicación académica comprometida con el análisis riguroso de las realidades latinoamericanas y caribeñas. Acceso abierto, sin restricciones comerciales.</p></div>
+      <div><p class="fct">Secciones</p><ul class="fcl"><li><a href="#portada">Inicio</a></li><li><a href="#quienes">Quiénes Somos</a></li><li><a href="#editorial">Editorial</a></li><li><a href="#articulos">Artículos</a></li><li><a href="#entrevistas">Entrevistas</a></li><li><a href="#resenas">Reseñas</a></li><li><a href="#visual">Visual</a></li><li><a href="#infografias">Infografías</a></li></ul></div>
+      <div><p class="fct">Publicación</p><ul class="fcl"><li><a href="#">Normas de Envío</a></li><li><a href="#">Comité Editorial</a></li><li><a href="#">Política de Acceso</a></li><li><a href="#">Archivo de Ediciones</a></li></ul></div>
+      <div><p class="fct">Contacto</p><ul class="fcl"><li><a href="#">Enviar Artículo</a></li><li><a href="#">Proponer Entrevista</a></li><li><a href="#">Reseñas Bibliográficas</a></li><li><a href="#">Suscripción Boletín</a></li></ul></div>
+    </div>
+    <div class="fbot"><p class="fcp">© 2009 Prorenalca &amp; Hermucan · Creative Commons BY-NC-SA 4.0 · Acceso Abierto</p><p class="fissn">ISSN 0000-0000 · Vol. I · No. 1 · 2009</p></div>
+  </div>
+</footer>
+
+</div><!-- /main-wrap -->
+
+<!-- Barra de admin (edición / cerrar sesión) — visible solo al loguearse -->
+<div id="admin-bar">
+  <button id="edit-mode-btn" onclick="toggleEditMode()">✏ Editar contenido</button>
+  <button id="logout-btn" onclick="logoutAdmin()">✕ Cerrar sesión</button>
+</div>
+
+<!-- Panel acceso admin (esquina inferior derecha, discreto) -->
+<div id="admin-login">
+  <div id="admin-panel">
+    <p>Acceso Administrativo</p>
+    <input type="password" id="admin-pass" placeholder="Contraseña">
+    <button id="admin-enter" onclick="checkAdmin()">Ingresar</button>
+    <p id="admin-msg"></p>
+  </div>
+  <button class="admin-toggle-btn" onclick="toggleAdminPanel()">⚙ Admin</button>
+</div>
+
+<script>
+/* ---- Sidebar ---- */
+let sidebarOpen = true;
+function toggleSidebar(){
+  sidebarOpen = !sidebarOpen;
+  const sb = document.getElementById('sidebar');
+  const mw = document.getElementById('main-wrap');
+  const btn = document.getElementById('sb-toggle');
+  if(sidebarOpen){
+    sb.classList.remove('closed');
+    sb.classList.add('open-mobile');
+    mw.classList.remove('collapsed');
+    btn.classList.add('open');
+    btn.style.left = '';
+  } else {
+    sb.classList.add('closed');
+    sb.classList.remove('open-mobile');
+    mw.classList.add('collapsed');
+    btn.classList.remove('open');
+    btn.style.left = '0';
+  }
+}
+function closeSidebarMobile(){
+  if(window.innerWidth <= 900){
+    sidebarOpen = false;
+    document.getElementById('sidebar').classList.remove('open-mobile');
+  }
+}
+// Mobile: start closed
+if(window.innerWidth <= 900){
+  sidebarOpen = false;
+  document.getElementById('sidebar').classList.add('closed');
+  document.getElementById('main-wrap').classList.add('collapsed');
+  document.getElementById('sb-toggle').classList.remove('open');
+}
+
+/* ---- Intersection observer ---- */
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.07});
+document.querySelectorAll('.sr').forEach(el=>io.observe(el));
+
+/* ---- Logo upload ---- */
+function loadLogo(e,imgId,hintId){const f=e.target.files[0];if(!f)return;const img=document.getElementById(imgId),hint=document.getElementById(hintId);const r=new FileReader();r.onload=ev=>{img.src=ev.target.result;img.style.display='block';hint.style.display='none'};r.readAsDataURL(f)}
+
+/* ---- Counters (solo cuando admin-mode activo o no son admin-only) ---- */
+function runCounters(){[{id:'s1',end:33,suffix:'%',fl:false},{id:'s2',end:.52,suffix:'',fl:true},{id:'s3',end:68,suffix:'%',fl:false}].forEach(({id,end,suffix,fl})=>{const el=document.getElementById(id);if(!el)return;const dur=1400,st=performance.now();(function step(now){const p=Math.min((now-st)/dur,1),ease=1-Math.pow(1-p,3);const val=fl?(end*ease).toFixed(2):Math.round(end*ease);el.textContent=val+suffix;if(p<1)requestAnimationFrame(step);else el.textContent=(fl?end.toFixed(2):end)+suffix})(st)})}
+function runBars(){document.querySelectorAll('.barf,.mfill').forEach(b=>b.classList.add('on'))}
+let ranInfo=false;
+const infObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!ranInfo){ranInfo=true;runCounters();setTimeout(runBars,200);infObs.disconnect()}})},{threshold:.1});
+const infoSec=document.getElementById('infografias');if(infoSec)infObs.observe(infoSec);
+
+/* ---- Comentarios ---- */
+const MAX=30;let count=3;
+function postComment(){if(count>=MAX)return;const name=document.getElementById('cfName').value.trim(),city=document.getElementById('cfCity').value.trim(),text=document.getElementById('cfText').value.trim();if(!name||!text){alert('Por favor ingresa nombre y comentario.');return}count++;document.getElementById('cCount').textContent=count;const ini=name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();const item=document.createElement('div');item.className='citem';item.innerHTML='<div class="cihd"><div class="cav">'+esc(ini)+'</div><div><span class="cnm">'+esc(name)+'</span><span class="cdt">'+(city?esc(city)+' · ':'')+' Ahora</span></div></div><p class="ctx">'+esc(text)+'</p>';const list=document.getElementById('cList');list.appendChild(item);list.scrollTop=list.scrollHeight;document.getElementById('cfName').value='';document.getElementById('cfCity').value='';document.getElementById('cfText').value='';if(count>=MAX){document.getElementById('cForm').style.display='none';document.getElementById('cLimit').classList.add('show')}}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+/* ---- Smooth scroll ---- */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+
+/* ======================================================
+   ADMIN + SISTEMA DE EDICIÓN INLINE
+   ====================================================== */
+const ADMIN_PASS = 'prorenalca2009'; // ← cambia esta contraseña
+let isAdmin = false;
+let editMode = false;
+
+/* Tooltip de edición */
+let tooltip = null;
+function createTooltip(){
+  tooltip = document.createElement('div');
+  tooltip.id = 'edit-tip';
+  tooltip.innerHTML = '✏ Haz clic para editar';
+  Object.assign(tooltip.style,{
+    position:'fixed',bottom:'5rem',left:'50%',transform:'translateX(-50%)',
+    background:'rgba(200,168,75,.92)',color:'#14183d',
+    fontFamily:"'Cinzel',serif",fontSize:'.65rem',letterSpacing:'.2em',
+    padding:'.4rem 1.1rem',pointerEvents:'none',zIndex:'9999',
+    opacity:'0',transition:'opacity .3s',whiteSpace:'nowrap',
+    boxShadow:'0 4px 18px rgba(0,0,0,.35)'
+  });
+  document.body.appendChild(tooltip);
+}
+function showTip(msg){
+  if(!tooltip) createTooltip();
+  tooltip.innerHTML = msg;
+  tooltip.style.opacity='1';
+  clearTimeout(window._tipTO);
+  window._tipTO = setTimeout(()=>{ if(tooltip) tooltip.style.opacity='0'; },2200);
+}
+
+/* Guardar en localStorage */
+function saveContent(){
+  const data={};
+  document.querySelectorAll('[data-editable]').forEach(el=>{
+    const k=el.getAttribute('data-editable');
+    data[k]=el.innerHTML;
+  });
+  localStorage.setItem('revista_content',JSON.stringify(data));
+}
+
+/* Cargar desde localStorage */
+function loadContent(){
+  const raw=localStorage.getItem('revista_content');
+  if(!raw) return;
+  try{
+    const data=JSON.parse(raw);
+    Object.entries(data).forEach(([k,v])=>{
+      const el=document.querySelector('[data-editable="'+k+'"]');
+      if(el) el.innerHTML=v;
+    });
+  }catch(e){}
+}
+
+/* Activar edición en todos los elementos editables */
+function enableEditing(){
+  document.querySelectorAll('[data-editable]').forEach(el=>{
+    const isAdminOnly = el.hasAttribute('data-admin-only');
+    if(isAdminOnly && !isAdmin) return;
+
+    el.setAttribute('contenteditable','true');
+    el.classList.add('editable-active');
+
+    el.addEventListener('focus', function(){
+      showTip('Escribe para editar · Enter para nueva línea · Clic fuera para guardar');
+    });
+    el.addEventListener('blur', function(){
+      saveContent();
+      showTip('✓ Guardado');
+    });
+    el.addEventListener('keydown', function(e){
+      if(e.key==='Escape'){ this.blur(); }
+    });
+  });
+  showTip('✏ Modo edición activado — haz clic en cualquier texto');
+}
+
+function disableEditing(){
+  document.querySelectorAll('[data-editable]').forEach(el=>{
+    el.removeAttribute('contenteditable');
+    el.classList.remove('editable-active');
+    // Limpiar listeners clonando
+    const clone = el.cloneNode(true);
+    el.parentNode.replaceChild(clone, el);
+  });
+  if(tooltip) tooltip.style.opacity='0';
+}
+
+/* Toggle modo edición */
+function toggleEditMode(){
+  editMode = !editMode;
+  const btn = document.getElementById('edit-mode-btn');
+  if(editMode){
+    enableEditing();
+    btn.textContent = '💾 Guardar y salir';
+    btn.style.borderColor='var(--rosep)';
+    btn.style.color='var(--rosep)';
+    document.body.classList.add('edit-mode-on');
+  } else {
+    saveContent();
+    disableEditing();
+    btn.textContent = '✏ Editar contenido';
+    btn.style.borderColor='';
+    btn.style.color='';
+    document.body.classList.remove('edit-mode-on');
+  }
+}
+
+/* --- Panel admin --- */
+function toggleAdminPanel(){
+  document.getElementById('admin-panel').classList.toggle('open');
+}
+
+function checkAdmin(){
+  const pass = document.getElementById('admin-pass').value;
+  const msg = document.getElementById('admin-msg');
+  if(pass === ADMIN_PASS){
+    isAdmin = true;
+    document.body.classList.add('admin-mode');
+    document.getElementById('admin-panel').classList.remove('open');
+    // Mostrar botón de edición y cerrar sesión
+    document.getElementById('admin-bar').style.display='flex';
+    document.getElementById('admin-login').style.display='none';
+    // Reveal stats
+    document.querySelectorAll('.admin-only .sr').forEach(el=>{
+      el.classList.remove('in');
+      io.observe(el);
+    });
+    setTimeout(()=>{ ranInfo=false; runCounters(); runBars(); },300);
+    showTip('Bienvenido, administrador');
+  } else {
+    msg.style.display='block';
+    msg.textContent='Contraseña incorrecta';
+    setTimeout(()=>{ msg.style.display='none'; },2500);
+  }
+  document.getElementById('admin-pass').value='';
+}
+
+function logoutAdmin(){
+  isAdmin = false;
+  editMode = false;
+  document.body.classList.remove('admin-mode','edit-mode-on');
+  disableEditing();
+  document.getElementById('admin-bar').style.display='none';
+  document.getElementById('admin-login').style.display='block';
+  document.getElementById('edit-mode-btn').textContent='✏ Editar contenido';
+}
+
+document.getElementById('admin-pass').addEventListener('keydown',e=>{
+  if(e.key==='Enter') checkAdmin();
+});
+
+/* ---- MODAL INSTITUCIONAL ---- */
+function openModal(tab){
+  document.getElementById('modal-overlay').classList.add('open');
+  switchTab(tab);
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeModalOutside(e){
+  if(e.target===document.getElementById('modal-overlay')) closeModal();
+}
+function switchTab(tab){
+  document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('active'));
+  const panel=document.getElementById('mpanel-'+tab);
+  if(panel) panel.classList.add('active');
+  document.querySelectorAll('.mtab').forEach(t=>{
+    if(t.getAttribute('onclick') && t.getAttribute('onclick').includes("'"+tab+"'")){
+      t.classList.add('active');
+    }
+  });
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+
+/* ---- IMÁGENES EN ARTÍCULOS ---- */
+function loadArtImg(e, wrapId){
+  const f=e.target.files[0]; if(!f) return;
+  const wrap=document.getElementById(wrapId);
+  const r=new FileReader();
+  r.onload=ev=>{
+    const ph=wrap.querySelector('.art-img-placeholder');
+    let img=wrap.querySelector('img.art-loaded');
+    if(!img){ img=document.createElement('img'); img.className='art-loaded'; wrap.insertBefore(img,ph); }
+    img.src=ev.target.result;
+    ph.style.display='none';
+    // show caption
+    const cap=document.getElementById(wrapId.replace('aimg','acap'));
+    if(cap){ cap.style.display='block'; }
+    // save
+    const store=JSON.parse(localStorage.getItem('revista_imgs')||'{}');
+    store[wrapId]=ev.target.result;
+    localStorage.setItem('revista_imgs',JSON.stringify(store));
+  };
+  r.readAsDataURL(f);
+}
+function removeArtImg(wrapId){
+  const wrap=document.getElementById(wrapId);
+  const img=wrap.querySelector('img.art-loaded');
+  if(img) img.remove();
+  const ph=wrap.querySelector('.art-img-placeholder');
+  if(ph) ph.style.display='flex';
+  const cap=document.getElementById(wrapId.replace('aimg','acap'));
+  if(cap) cap.style.display='none';
+  const store=JSON.parse(localStorage.getItem('revista_imgs')||'{}');
+  delete store[wrapId];
+  localStorage.setItem('revista_imgs',JSON.stringify(store));
+}
+function loadSavedImages(){
+  const store=JSON.parse(localStorage.getItem('revista_imgs')||'{}');
+  Object.entries(store).forEach(([wrapId,src])=>{
+    const wrap=document.getElementById(wrapId); if(!wrap) return;
+    const ph=wrap.querySelector('.art-img-placeholder');
+    let img=wrap.querySelector('img.art-loaded');
+    if(!img){ img=document.createElement('img'); img.className='art-loaded'; wrap.insertBefore(img,ph); }
+    img.src=src;
+    ph.style.display='none';
+    const cap=document.getElementById(wrapId.replace('aimg','acap'));
+    if(cap) cap.style.display='block';
+  });
+}
+
+/* Cargar contenido guardado al iniciar */
+window.addEventListener('DOMContentLoaded',()=>{ loadContent(); loadSavedImages(); });
+</script>
+</body>
+</html>
